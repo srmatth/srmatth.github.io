@@ -1,0 +1,67 @@
+h1, h2, h3 {
+  font-family:Times New Roman;
+  color:#1D3557;
+  padding-left: 15px;
+}
+
+p {
+  font-family:Times New Roman;
+  color: #000004;
+  padding-left: 15px;
+  padding-right:15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.head {
+  background:#A8DADC;
+  padding:5px;
+  overflow: hidden;
+}
+
+.head a {
+  float: left;
+  color: #1D3557;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.head a:hover {
+  background-color: #F1FAEE;
+}
+
+/* Add a color to the active/current link */
+.head a.active {
+  background-color: #F1FAEE !important;
+}
+
+.bg {
+  padding-top:0px;
+  padding-bottom:10px;
+  padding-right:0px;
+  padding-left:0px;
+  background-color:#F1FAEE;
+}
+
+.photo {
+  padding:5px;
+}
+
+.info {
+  display: inline-block;
+}
+
+.column{
+  float:left;
+  background-color:#F1FAEE;
+}
+.column-2 {
+  width:16%;
+}
+.column-10 {
+  width:83%;
+}
+
