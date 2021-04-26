@@ -1,24 +1,21 @@
+/* General Text Styling*/
 h1, h2, h3 {
   font-family:Times New Roman;
   color:#1D3557;
   padding-left: 15px;
 }
-
 p {
   font-family:Times New Roman;
   color: #000004;
-  padding-left: 15px;
-  padding-right:15px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding: 7px 15px;
 }
 
+/* Navigation Bar Menu Styling */
 .head {
-  background:#A8DADC;
+  background:#FFF8EB;
   padding:5px;
   overflow: hidden;
 }
-
 .head a {
   float: left;
   color: #1D3557;
@@ -27,23 +24,28 @@ p {
   text-decoration: none;
   font-size: 17px;
 }
-
-/* Change the color of links on hover */
 .head a:hover {
-  background-color: #F1FAEE;
+  background-color: #E1B7BB;
+  color: #FFF8EB;
+}
+.head .curr_page {
+  background-color: #6D2231;
+  color: #FFF8EB;
 }
 
-/* Add a color to the active/current link */
-.head a.active {
-  background-color: #F1FAEE !important;
+/* Font Styling */
+.t-light {
+  color: #FFF8EB;
 }
+.t-dark {
+  color: #192F4D;
+}
+
+
 
 .bg {
-  padding-top:0px;
-  padding-bottom:10px;
-  padding-right:0px;
-  padding-left:0px;
-  background-color:#F1FAEE;
+  padding: 0 0 10px 0;
+  background-color:#192F4D;
 }
 
 .photo {
@@ -56,7 +58,7 @@ p {
 
 .column{
   float:left;
-  background-color:#F1FAEE;
+  background-color:#192F4D;
 }
 .column-2 {
   width:16%;
@@ -65,3 +67,9 @@ p {
   width:83%;
 }
 
+.bio {
+  padding: 5px;
+  border:solid 2px;
+  text-align:center;
+  margin: 10px;
+}
