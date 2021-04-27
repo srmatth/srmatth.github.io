@@ -42,10 +42,14 @@ p {
 }
 
 
+body, html {
+  height: 100%;
+  margin: 0;
+}
 
 .bg {
-  padding: 0 0 10px 0;
   background-color:#192F4D;
+  height: 100%;
 }
 
 .photo {
@@ -58,10 +62,15 @@ p {
 
 .column{
   float:left;
-  background-color:#192F4D;
 }
 .column-2 {
   width:16%;
+}
+.column-4 {
+  width: 33%;
+}
+.column-6 {
+  width: 50%;
 }
 .column-10 {
   width:83%;
@@ -69,9 +78,11 @@ p {
 
 .bio {
   padding: 5px;
-  border:solid 2px;
+  border:solid 2px #192F4D;
+  border-radius: 50px;
   text-align:center;
   margin: 10px;
+  background-color:#AAC7DA;
 }
 
 .contact a {
