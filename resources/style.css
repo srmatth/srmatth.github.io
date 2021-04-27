@@ -73,3 +73,8 @@ p {
   text-align:center;
   margin: 10px;
 }
+
+.contact a {
+  text-decoration:none;
+  color: #FFF8EB;
+}
