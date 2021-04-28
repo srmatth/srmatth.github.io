@@ -9,6 +9,9 @@ p {
   color: #000004;
   padding: 7px 15px;
 }
+ul {
+  text-align: left;
+}
 
 /* Navigation Bar Menu Styling */
 .head {
@@ -82,7 +85,7 @@ body, html {
   border-radius: 50px;
   text-align:center;
   margin: 10px;
-  background-color:#AAC7DA;
+  background-color:#FFF8EB;
 }
 
 .contact a {
