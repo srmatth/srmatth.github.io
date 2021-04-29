@@ -16,7 +16,7 @@ ul {
 /* Navigation Bar Menu Styling */
 .head {
   background:#FFF8EB;
-  padding:5px;
+  padding:0;
   overflow: hidden;
 }
 .head a {
@@ -78,6 +78,9 @@ body, html {
 .column-10 {
   width:83%;
 }
+.column-12 {
+  width: 100%;
+}
 
 .bio {
   padding: 5px;
@@ -91,4 +94,13 @@ body, html {
 .contact a {
   text-decoration:none;
   color: #FFF8EB;
+}
+
+.project {
+  height: 250px;
+  background-color: #AAC7DA;
+  box-shadow: 5px 5px #FFF8EB;
+  text-align:center;
+  margin: 5px;
+  border-radius: 10px;
 }
