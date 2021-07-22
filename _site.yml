@@ -18,3 +18,6 @@ navbar:
     - href: https://linkedin.com/in/spencer-reed-matthews/
       icon: fa-linkedin
 output_dir: docs
+output:
+  html_document:
+    css: resources/new.css

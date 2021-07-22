@@ -2,6 +2,7 @@
 title: "Spencer Matthews"
 ---
 
+<div class="col_6">
 ## Education
 
 - BYU (Provo, UT)
@@ -10,7 +11,9 @@ title: "Spencer Matthews"
 - UC Irvine (Irvine, CA)
   + Doctor of Philosophy in Statistics
   + June 2025 (Planned)
-  
+</div>
+
+<div class="col_6">
 ## Experience
               
 - Data Scientist at CLA
@@ -19,6 +22,7 @@ title: "Spencer Matthews"
   + November 2019 - Present
 - Statistics TA at BYU
   + January 2019 - May 2020
+</div>
 
 ## Bio
 

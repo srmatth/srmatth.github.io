@@ -1,0 +1,31 @@
+/*Set the color of the navbar*/
+.navbar-default {
+  background-color: #FFF8EB;
+}
+
+/* Style the main body of the app*/
+body {
+  background-color: #4B84AA;
+  color: #fff8eb;
+}
+
+.col_12 {
+  width: 100%;
+}
+.col_6 {
+  width: 50%;
+  float: left;
+}
+.col_4 {
+  width: 30%;
+  float: left;
+}
+
+/*
+#education {
+  background-color: #FFF8EB;
+  color: #192f4d;
+  border-radius: 5px;
+  box-shadow: 5px 5px #0f1c2e;
+}
+*/
