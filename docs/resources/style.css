@@ -1,0 +1,120 @@
+/* General Text Styling*/
+h1, h2, h3 {
+  font-family:Times New Roman;
+  color:#1D3557;
+  padding-left: 15px;
+}
+p {
+  font-family:Times New Roman;
+  color: #000004;
+  padding: 7px 15px;
+}
+ul {
+  text-align: left;
+}
+
+/* Navigation Bar Menu Styling */
+.head {
+  background:#FFF8EB;
+  padding:0;
+  overflow: hidden;
+}
+.head a {
+  float: left;
+  color: #1D3557;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.head a:hover {
+  background-color: #E1B7BB;
+  color: #FFF8EB;
+}
+.head .curr_page {
+  background-color: #6D2231;
+  color: #FFF8EB;
+}
+
+/* Font Styling */
+.t-light {
+  color: #FFF8EB;
+}
+.t-dark {
+  color: #192F4D;
+}
+
+
+body, html {
+  /*height: 100%;*/
+  margin: 0;
+}
+html {
+  background: url(https://srmatth.github.io/resources/navy_blue_bg.PNG) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.photo {
+  padding:15px;
+}
+
+.info {
+  display: inline-block;
+}
+
+.column{
+  float:left;
+}
+.column-2 {
+  width:16%;
+}
+.column-4 {
+  width: 33%;
+}
+.column-6 {
+  width: 50%;
+}
+.column-10 {
+  width:83%;
+}
+
+.bio {
+  padding: 5px;
+  border:solid 2px #192F4D;
+  border-radius: 50px;
+  text-align:center;
+  margin: 10px;
+  background-color:#FFF8EB;
+}
+
+.contact a {
+  text-decoration:none;
+  color: #FFF8EB;
+}
+
+.project-card {
+  margin: 15px;
+  padding: 5px;
+  background-color: #E1B7BB;
+  text-align:center;
+  color: #6D2231;
+}
+
+.project-card a {
+  font-size: 16pt;
+  color: #192F4D;
+  text-decoration:none;
+}
+.project-card a:hover {
+  font-size: 16pt;
+  color: #6398BB;
+  text-decoration:none;
+}
+.project-card a:active {
+  font-size: 16pt !important;
+  color: #6398BB !important;
+  text-decoration:none !important;
+}

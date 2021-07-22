@@ -1,0 +1,20 @@
+name: "my-website"
+navbar:
+  title: "Spencer Matthews"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Research"
+      href: research.html
+    - text: "Portfolio"
+      href: portfolio.html
+    - text: "Github Projects"
+      href: github_projects.html
+    - text: "Blog"
+      href: blog.html
+  right:
+    - href: https://github.com/srmatth
+      icon: fa-github
+    - href: https://linkedin.com/in/spencer-reed-matthews/
+      icon: fa-linkedin
+output_dir: docs
