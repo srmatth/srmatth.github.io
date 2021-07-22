@@ -110,11 +110,11 @@ html {
 }
 .project-card a:hover {
   font-size: 16pt;
-  color: #AAC7DA;
+  color: #6398BB;
   text-decoration:none;
 }
 .project-card a:active {
   font-size: 16pt !important;
-  color: #AAC7DA !important;
+  color: #6398BB !important;
   text-decoration:none !important;
 }
