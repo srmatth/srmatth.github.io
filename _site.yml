@@ -13,6 +13,8 @@ navbar:
     - text: "Blog"
       href: blog.html
   right:
+    - href: mailto:spencer.matthews@uci.edu
+      icon: fa-envelope
     - href: https://github.com/srmatth
       icon: fa-github
     - href: https://linkedin.com/in/spencer-reed-matthews/
@@ -21,3 +23,5 @@ output_dir: docs
 output:
   html_document:
     css: resources/new.css
+    includes:
+      in_header: header.html

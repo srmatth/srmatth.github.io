@@ -1,13 +1,45 @@
-/*Set the color of the navbar*/
+/*----------------NAVBAR ---------------*/
 .navbar-default {
-  background-color: #FFF8EB;
+    background-color: #FFF8EB;
+    border: none;
+}
+
+.navbar-default .navbar-nav>.active>a {
+  color: #ffffff !important;
+  background-color: #6D2231 !important;
+}
+
+/* Dropdown menu color */
+.navbar-default .dropdown-menu {
+  background-color: #141c25;
+}
+
+/* Dropdown menu hover color */
+  .navbar-default .dropdown-menu>li>a:hover {
+    background-color: #6D2231;
+  }
+
+/* Navbar Links when hovered*/
+/*.navbar-default .dropdown-menu>.active>a
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav:hover, */
+.navbar-default .navbar-nav>li>a:hover, 
+a.navbar-brand:hover {
+  background-color: #E1B7BB !important;
 }
 
 /* Style the main body of the app*/
 body {
-  background-color: #4B84AA;
-  color: #fff8eb;
+  background-color: #aac7da;
+  color: #1e1f1e;
+  padding-top: 40px;
+  padding-bottom: 0;
 }
+.main-container {
+  background-color: #e3ecf3;
+  color: #1e1f1e;
+}
+
 
 .col_12 {
   width: 100%;
@@ -20,12 +52,14 @@ body {
   width: 30%;
   float: left;
 }
-
-/*
-#education {
-  background-color: #FFF8EB;
-  color: #192f4d;
-  border-radius: 5px;
-  box-shadow: 5px 5px #0f1c2e;
+.col_2 {
+  width: 16.66%;
+  float: left;
 }
-*/
+
+
+/* Some CSS for the headers by id*/
+#Bio {
+  text-align: center;
+}
+
