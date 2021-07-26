@@ -3,15 +3,15 @@ navbar:
   title: "Spencer Matthews"
   left:
     - text: "Home"
-      href: https://srmatth.github.io
+      href: index.html
     - text: "Research"
-      href: https://srmatth.github.io/research
+      href: research.html
     - text: "Portfolio"
-      href: https://srmatth.github.io/portfolio
+      href: portfolio.html
     - text: "Github Projects"
-      href: https://srmatth.github.io/githubprojects
+      href: github_projects.html
     - text: "Blog"
-      href: https://srmatth.github.io/blog
+      href: blog.html
   right:
     - href: mailto:spencer.matthews@uci.edu
       icon: fa-envelope

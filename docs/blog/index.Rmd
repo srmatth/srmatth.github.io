@@ -1,6 +1,0 @@
----
-title: "Blog"
-output: html_document
----
-
-The landing page for my blog about R and data science

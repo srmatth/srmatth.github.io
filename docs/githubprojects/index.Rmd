@@ -1,6 +1,0 @@
----
-title: "Github Projects"
-output: html_document
----
-
-This site will list the github projects on my account, and descriptions/links to each one, and maybe some additional resources.
