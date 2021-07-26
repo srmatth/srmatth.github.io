@@ -1,0 +1,6 @@
+---
+title: "Research"
+output: html_document
+---
+
+This is where I will detail the research projects that I am currently working on or have worked on in the past.
