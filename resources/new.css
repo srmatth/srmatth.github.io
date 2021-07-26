@@ -1,3 +1,7 @@
+/*--------------FONTS------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+
 /*----------------NAVBAR ---------------*/
 .navbar-default {
     background-color: #FFF8EB;
@@ -34,6 +38,7 @@ body {
   color: #1e1f1e;
   padding-top: 40px;
   padding-bottom: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 .main-container {
   background-color: #e3ecf3;
@@ -49,17 +54,46 @@ body {
   float: left;
 }
 .col_4 {
-  width: 30%;
+  width: 33%;
+  float: left;
+}
+.col_8 {
+  width: 67%;
   float: left;
 }
 .col_2 {
   width: 16.66%;
   float: left;
 }
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Source Serif Pro', serif;
+}
 
 
 /* Some CSS for the headers by id*/
 #Bio {
   text-align: center;
+}
+
+
+/*------------FOOTER----------*/
+
+/* Divider line above footer */
+.footer hr{
+  width: 100%;
+  border-top: none;
+}
+
+.footer {
+  font-size: 16px;
+  color: #808080;
+  text-align: center;
+  width: 90%;
+  margin: 3rem auto;
+  font-weight: 300;
+}
+
+.tocify-extend-page {
+  height: 0px !important; /* Gets rid of extra space after footer*/
 }
 
