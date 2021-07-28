@@ -1,0 +1,10 @@
+---
+title: "<div style='text-align:right; font-size:14pt;'><a href='research.html'>Back to Research Page</a></div>An Exploration of the CAS Data"
+output: html_document
+---
+
+*Joint work with Brian Hartman*
+
+This paper is currently being written, and is not yet available for viewing. Please check back in the future for further updates.
+Thank you!
+

@@ -1,0 +1,37 @@
+---
+title: "<div style='text-align:right; font-size:14pt;'><a href='research.html'>Back to Research Page</a></div>mSHAP: SHAP Values for Two-Part Models"
+output: html_document
+---
+
+*Joint work with Brian Hartman*
+
+<div class='col_6' style='text-align:center'>
+  <a>
+    View the Paper on arXiv
+  </a>
+</div>
+
+<div class='col_6' style='text-align:center'>
+  <a href="resources/mSHAP_2021_06_15">
+    Download a PDF of the paper
+  </a>
+</div>
+
+## Abstract
+
+Two-part models are important to and used throughout insurance and actuarial science. Since insurance is required for registering a car, obtaining a mortgage, and participating in certain businesses, it is especially important that the models which price insurance policies are fair and non-discriminatory. Black box models can make it very difficult to know which covariates are influencing the results, leading to model risk and bias. SHAP values enable interpretation of various black box models, but little progress has been made in two-part models.
+In this paper, we propose mSHAP (or multiplicative SHAP), a method for computing SHAP values of two-part models  using the SHAP values of the individual models.
+This method will allow for the predictions of two-part models to be explained at an individual observation level.
+After developing mSHAP, we perform an in-depth simulation study.
+Although the kernelSHAP algorithm is also capable of computing approximate SHAP values for a two-part model, a comparison with our method demonstrates that mSHAP is exponentially faster.
+Ultimately, we apply mSHAP to a two-part ratemaking model for personal auto property damage insurance coverage. Additionally, an R package (mshap) is available to easily implement the method in a wide variety of applications.
+
+## Other Resources
+
+This research was presented at the 24th International Insurance: Mathematics and Economics Conference on July 8th, 2021. [View the slides here](resources/mshap_slides.pdf) or [see a transcript of the talk here.](resources/mshap_talk.pdf)
+
+For more information on the `{mSHAP}` `R` package:
+
+- [The mSHAP github page](https://github.com/srmatth/mshap)
+- [The CRAN mSHAP page](https://cran.org/package=mshap)
+

@@ -11,7 +11,7 @@
 
 
 
-<title>Research</title>
+<title>research-mshap.knit</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -289,24 +289,32 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Research</h1>
+<h1 class="title toc-ignore"><div style="text-align:right; font-size:14pt;">
+<a href='research.html'>Back to Research Page</a>
+</div>
+mSHAP: SHAP Values for Two-Part Models</h1>
 
 </div>
 
 
-<p>My research interests include natural language processing, explainable machine learning, and statistical computing. Following are papers and presentations that came from original research.</p>
-<hr style="border-top: 1px solid black">
-<div id="mshap" class="section level2">
-<h2><a href="research-mshap.html">mSHAP</a></h2>
-<p><em>Joint work with Brian Hartman</em></p>
-<p>Two-part models are important to and used throughout insurance and actuarial science. Since insurance is required for registering a car, obtaining a mortgage, and participating in certain businesses, it is especially important that the models which price insurance policies are fair and non-discriminatory. mSHAP is a methodology for explaining the predictions of these two-part models to ensure accuracy and fairness in setting insurance prices.</p>
-<hr style="border-top: 1px solid black">
+<div class="col_6" style="text-align:center">
+<p><a> View the Paper on arXiv </a></p>
 </div>
-<div id="cas-data" class="section level2">
-<h2><a href="research-cas.html">CAS Data</a></h2>
-<p><em>Joint work with Brian Hartman</em></p>
-<p>Due to privacy and proprietary property concerns, there are not many insurance data sets available to those in the data field. In this project, we obtained a large data set of policies and explored the possibilities of predicting the premium using two-part models made up of many different machine learning algorithms. This data is now available from the CAS (Casualty Actuary Society) and this project includes a user guide for the data.</p>
-<hr style="border-top: 1px solid black">
+<div class="col_6" style="text-align:center">
+<p><a href="resources/mSHAP_2021_06_15"> Download a PDF of the paper </a></p>
+</div>
+<div id="abstract" class="section level2">
+<h2>Abstract</h2>
+<p>Two-part models are important to and used throughout insurance and actuarial science. Since insurance is required for registering a car, obtaining a mortgage, and participating in certain businesses, it is especially important that the models which price insurance policies are fair and non-discriminatory. Black box models can make it very difficult to know which covariates are influencing the results, leading to model risk and bias. SHAP values enable interpretation of various black box models, but little progress has been made in two-part models. In this paper, we propose mSHAP (or multiplicative SHAP), a method for computing SHAP values of two-part models using the SHAP values of the individual models. This method will allow for the predictions of two-part models to be explained at an individual observation level. After developing mSHAP, we perform an in-depth simulation study. Although the kernelSHAP algorithm is also capable of computing approximate SHAP values for a two-part model, a comparison with our method demonstrates that mSHAP is exponentially faster. Ultimately, we apply mSHAP to a two-part ratemaking model for personal auto property damage insurance coverage. Additionally, an R package (mshap) is available to easily implement the method in a wide variety of applications.</p>
+</div>
+<div id="other-resources" class="section level2">
+<h2>Other Resources</h2>
+<p>This research was presented at the 24th International Insurance: Mathematics and Economics Conference on July 8th, 2021. <a href="resources/mshap_slides.pdf">View the slides here</a> or <a href="resources/mshap_talk.pdf">see a transcript of the talk here.</a></p>
+<p>For more information on the <code>{mSHAP}</code> <code>R</code> package:</p>
+<ul>
+<li><a href="https://github.com/srmatth/mshap">The mSHAP github page</a></li>
+<li><a href="https://cran.org/package=mshap">The CRAN mSHAP page</a></li>
+</ul>
 </div>
 
 
