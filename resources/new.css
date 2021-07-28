@@ -97,3 +97,14 @@ h1,h2,h3,h4,h5,h6 {
   height: 0px !important; /* Gets rid of extra space after footer*/
 }
 
+/*---------Github Project--------*/
+.github_proj {
+  background-color: #E1B7BB;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 7px;
+}
+
+
+
