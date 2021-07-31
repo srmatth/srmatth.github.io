@@ -6,13 +6,17 @@ output: html_document
 *Joint work with Brian Hartman*
 
 <div class='col_6' style='text-align:center'>
-  <a>
+  <a href="https://arxiv.org/abs/2106.08990">
+    <i class="fas fa-external-link-alt" style="font-size:30pt"></i>
+    <br>
     View the Paper on arXiv
   </a>
 </div>
 
 <div class='col_6' style='text-align:center'>
   <a href="resources/mSHAP_2021_06_15">
+    <i class="fas fa-file-download" style="font-size:30pt"></i>
+    <br>
     Download a PDF of the paper
   </a>
 </div>
