@@ -33,9 +33,10 @@ Ultimately, we apply mSHAP to a two-part ratemaking model for personal auto prop
 ## Other Resources
 
 This research was presented at the 24th International Insurance: Mathematics and Economics Conference on July 8th, 2021. [View the slides here](resources/mshap_slides.pdf) or [see a transcript of the talk here.](resources/mshap_talk.pdf)
+The actual talk can be viewed (with an actuview account) [at this website](https://www.actuview.com/video/mSHAP-Explainability-of-Two-Part-Models/a70f5b18d1f1e39cd51d65f73440b6a1).
 
 For more information on the `{mSHAP}` `R` package:
 
 - [The mSHAP github page](https://github.com/srmatth/mshap)
-- [The CRAN mSHAP page](https://cran.org/package=mshap)
+- [The CRAN mSHAP page](https://CRAN.R-project.org/package=mshap)
 
