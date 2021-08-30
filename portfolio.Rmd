@@ -3,4 +3,90 @@ title: "Portfolio"
 output: html_document
 ---
 
-Here I will create a portfolio of work.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(shiny)
+```
+
+```{css}
+h2, h3, h4, h5, h6{
+  text-align:center;
+}
+```
+
+
+As my interests are wide in scope, this portfolio is not limited to any specific type of content.
+Though it will largely focus on my efforts in data science and statistics, it may also include other areas of my life including writing, art, and photography.
+
+---
+
+## <a href="portfolio-dataviz.html">Data Visualizations</a>
+
+```{r}
+fluidRow(
+  column(
+    width = 4,
+    tags$a(tags$img(src = "resources/portfolio/2021-08-24.jpeg", width = "100%"), href = "portfolio-dataviz.html")
+  ),
+  column(
+    width = 8,
+    tags$a(tags$img(src = "resources/portfolio/2021-07-27.jpg", width = "100%"), href = "portfolio-dataviz.html")
+  )
+)
+
+```
+
+
+---
+
+## <a href="portfolio-papers.html">Statistical Papers</a>
+
+```{r}
+fluidRow(
+  column(
+    width = 2,
+    tags$a(
+      tags$img(src = "resources/portfolio/mshap_thumbnail.PNG", width = "100%"),
+      href = "portfolio-papers.html#mshap"
+    )
+  )
+)
+
+```
+
+
+---
+
+## <a href="portfolio-apps.html">Shiny Applications</a>
+
+```{r}
+fluidRow(
+  column(
+    width = 4,
+    tags$a(
+      tags$img(src = "resources/portfolio/historical_investing_screenshot.PNG", width = "100%"),
+      href = "portfolio-apps.html#historicalInvesting"
+    )
+  )
+)
+```
+
+---
+
+## <a href="portfolio-pres.html">Presentations</a>
+
+```{r}
+fluidRow(
+  column(
+    width = 4,
+    tags$a(
+      tags$img(src = "resources/portfolio/mshap_pres.PNG", width = "100%", style = "padding-bottom: 10px;"),
+      href = "portfolio-pres.html#mshap"
+    )
+  )
+)
+```
+
+
+
+

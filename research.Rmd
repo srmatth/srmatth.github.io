@@ -3,12 +3,14 @@ title: "Research"
 output: html_document
 ---
 
-My research interests include natural language processing, explainable machine learning, and statistical computing.
+My research interests include natural language processing, explainable machine learning, astrostatistics, and statistical computing.
 Following are papers and presentations that came from original research.
 
 <hr style="border-top: 1px solid black">
 
 ## <a href="research-mshap.html">mSHAP</a>
+
+**Submitted**
 
 *Joint work with Brian Hartman*
 
@@ -19,6 +21,8 @@ mSHAP is a methodology for explaining the predictions of these two-part models t
 <hr style="border-top: 1px solid black">
 
 ## <a href="research-cas.html">CAS Data</a>
+
+**In Progress**
 
 *Joint work with Brian Hartman*
 

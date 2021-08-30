@@ -33,7 +33,8 @@ column(
   width = 6,
   div(
     class="github_proj",
-    tags$a(h2("tidytuesday"), href = "https://github.com/srmatth/tidytuesday")
+    tags$a(h2("tidytuesday"), href = "https://github.com/srmatth/tidytuesday"),
+    p("My attempts at honing my data visualization skills via the weekly dataset put out in the tidytuesday repo from rfordatascience")
   ),
   div(
     class="github_proj",

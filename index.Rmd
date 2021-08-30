@@ -19,11 +19,13 @@ output:
   + June 2025 (Planned)
   
 ## Experience
-              
+
+- Teaching Assistant at UC Irvine
+  + September 2021 - Present
 - Data Scientist at CLA
   + January 2020 - Present
 - Research Assistant at BYU
-  + November 2019 - Present
+  + November 2019 - September 2021
 - Statistics TA at BYU
   + January 2019 - May 2020
 </div>
@@ -59,6 +61,6 @@ Spencer Matthews
 
 ## Bio 
 
-Spencer Matthews was born in Sacramento, California, where he lived with his parents and four younger siblings until he was 18.  After graduating from high school, he lived in Lima, Peru for two years while serving a service mission for the Church of Jesus Christ of Latter-Day Saints.  Upon returning from Peru, Spencer began his college education at Brigham Young University (BYU) in Provo, Utah.  He studied statistics and quickly developed a passion for the field.  While at BYU Spencer was blessed with wonderful mentors including Dr. Dennis Tolley and Dr. Brian Hartman, both of whom encouraged him to pursue graduate education.  While at BYU Spencer gained valuable experience working as a research assistant with Dr. Hartman and a teaching assistant for an introductory statistics course.  He has also been working as a data science intern for the accounting firm CLA since January of 2020.  Spencer completed his BS in Statistics at BYU in December of 2020 and married Isabelle Tooley shortly after graduating.  They currently live in Maui, Hawaii but will be relocating to Irvine, California in the Fall of 2021 where Spencer will pursue a Statistics PhD at the University of California, Irvine.  In addition to all things statistics, Spencer loves playing volleyball and spending time at the beach with a good book.
+Spencer Matthews was born in Sacramento, California, where he lived with his parents and four younger siblings until he was 18.  After graduating from high school, he lived in Lima, Peru for two years while serving a service mission for the Church of Jesus Christ of Latter-Day Saints.  Upon returning from Peru, Spencer began his college education at Brigham Young University (BYU) in Provo, Utah.  He studied statistics and quickly developed a passion for the field.  While at BYU Spencer was blessed with wonderful mentors including Dr. Dennis Tolley and Dr. Brian Hartman, both of whom encouraged him to pursue graduate education.  While at BYU Spencer gained valuable experience working as a research assistant with Dr. Hartman and a teaching assistant for an introductory statistics course.  He has also been working as a data science intern for the accounting firm CLA since January of 2020.  Spencer completed his BS in Statistics at BYU in December of 2020 and married Isabelle Tooley shortly after graduating.  They moved to Maui, Hawaii for six months before relocating to Irvine, California where Spencer began a PhD in Statistics at the University of California, Irvine.  In addition to all things statistics, Spencer loves playing volleyball and spending time at the beach with a good book.
 
 </div>
