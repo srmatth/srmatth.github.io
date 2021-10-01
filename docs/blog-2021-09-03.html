@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Autonumeric Inputs in R!</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="resources/favicon.png"/>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="resources/new.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Spencer Matthews</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="portfolio.html">Portfolio</a>
+</li>
+<li>
+  <a href="github_projects.html">Github Projects</a>
+</li>
+<li>
+  <a href="blog.html">Blog</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:spencer.matthews@uci.edu">
+    <span class="fa fa-envelope"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/srmatth">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://linkedin.com/in/spencer-reed-matthews/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Autonumeric Inputs in R!</h1>
+
+</div>
+
+
+<p>As someone who has developed several shiny apps for business use, I worked alot with inputs in the app that were dollar-based. Specifically, in one revenue planning solution the user was expected to input amounts in the millions and tens of millions repeatedly. If you have ever tried to do this in a typical <code>shiny::numericInput()</code> you will know that trying to keep track of zeros can be tedious.</p>
+<pre class="r"><code>library(shiny)
+numericInput(
+  inputId = (&quot;num&quot;),
+  label = &quot;Try typing a lot of zeros here:&quot;,
+  value = 10000000,
+  width = &quot;25%&quot;
+)</code></pre>
+<div class="form-group shiny-input-container" style="width:25%;">
+<label class="control-label" id="num-label" for="num">Try typing a lot of zeros here:</label>
+<input id="num" type="number" class="form-control" value="10000000"/>
+</div>
+<p>The business leaders needed a better solution than that, so I dug in and wrote a basic javascript input binding that automatically added a dollar sign and commas. With the encouragement of my supervisor, I decided to make this avaiable to everyone by submitting a pull request to the <code>{shinyWidgets}</code> package.</p>
+<p>The author and maintainer of that package, <a href="https://github.com/pvictor">Victor Perrier</a> suggested a more robust approach using a pre-existing javascript library called <a href="http://autonumeric.org/">Autonumeric.js</a>, and with his help I was able to create a new Autonumeric family of functions in <code>{shinyWidgets}</code>.</p>
+<p>With these new functions, we can transform the above input, into something like this (note that <code>{shinyWidgets}</code> inputs depend on an active shiny session, so the outputs of <code>{shinyWidgets}</code> code chunks will just be screen-shots):</p>
+<pre class="r"><code>library(shinyWidgets)
+currencyInput(
+  inputId = &quot;auto_num&quot;,
+  label = &quot;This is much easier to read and work with:&quot;,
+  format = &quot;dollar&quot;,
+  value = 10000000,
+  width = &quot;50%&quot;
+)</code></pre>
+<p><img src="resources/blog/2021-09-03/dollar-input-1.PNG" style="width:50.0%" /></p>
+<p>Autonumeric inputs provide as-you-type formatting, so you can easily keep track of whether it’s $10,000 or $10,000,000. To try it out in action, please visit my <a href="">example shiny app</a>.</p>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<p>There are three main functions: <code>currencyInput()</code>, <code>formatNumericInput()</code>, and <code>autonumericInput()</code>. Each of these functions has an associated <code>update*()</code> function.</p>
+<p>The first two are pre-packaged for helping with specific formats, such as Euro format, dollar format, percentage format, or even just plain old pretty number format. <code>shinyWidgets::currencyInput()</code> and <code>shinyWidgets::formatNumericInput()</code> perform the exact same operations, the only difference is in the naming. The <code>format</code> argument of these functions can be set to one of over 40 presets (<a href="https://github.com/autoNumeric/autoNumeric/#predefined-language-options">see available list of presets here</a> or <a href="https://rdrr.io/github/dreamRs/shinyWidgets/man/formatNumericInput.html">view the documentation</a> for either of these functions for an abbreviated list). Since these formats can be for percentages, currencies, or numbers we created the two different functions for easier code readability (it wouldn’t make a lot of sense to have <code>currencyInput()</code> output a percentage input in my opinion).</p>
+<p>The last function, <code>autonumericInput()</code> is a complete wrapper of the Autonumeric javascript library, which comes with over 55 parameters. The most useful have been included as specific function parameters, and all others can be passed to <code>...</code>. Extensive documentation of the parameters can be found <a href="https://rdrr.io/github/dreamRs/shinyWidgets/man/autonumericInput.html">in the <code>R</code> package itself</a> and also on the <a href="http://autonumeric.org/guide">Autonumeric website</a>.</p>
+<p>The update functions for the three main functions provide the same update functionality common to all shiny inputs.</p>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<p>We will explore some basic use cases here and the code will be shown, but for an interactive version of these examples see <a href="">this online shiny app</a>.</p>
+<p>First, we will just call the input with the American number format:</p>
+<pre class="r"><code>formatNumericInput(
+  inputId = &quot;pct&quot;,
+  label = &quot;Pretty Number Input&quot;,
+  value = 1145389.58,
+  width = &quot;50%&quot;,
+  format = &quot;dotDecimalCharCommaSeparator&quot;
+)</code></pre>
+<p><img src="resources/blog/2021-09-03/preset-inputs-1.PNG" style="width:50.0%" /></p>
+<p>Then, we can test some of the other presets:</p>
+<pre class="r"><code>## A Dollar Input
+currencyInput(
+  inputId = &quot;dollar&quot;,
+  label = &quot;Dollar Input:&quot;,
+  format = &quot;dollar&quot;,
+  value = 10000000,
+  width = &quot;50%&quot;
+)
+
+## A Euro Input
+currencyInput(
+  inputId = &quot;euro&quot;,
+  label = &quot;Euro Input:&quot;,
+  format = &quot;euro&quot;,
+  value = 10000000,
+  width = &quot;50%&quot;
+)
+
+## A Yen Input
+currencyInput(
+  inputId = &quot;yen&quot;,
+  label = &quot;Yen Input:&quot;,
+  format = &quot;Japanese&quot;,
+  value = 10000000,
+  width = &quot;50%&quot;
+)
+
+## A Percent Input
+formatNumericInput(
+  inputId = &quot;pct&quot;,
+  label = &quot;Percent Input&quot;,
+  format = &quot;percentageUS2dec&quot;,
+  value = .58,
+  width = &quot;50%&quot;
+)</code></pre>
+<p><img src="resources/blog/2021-09-03/preset-inputs-2.PNG" style="width:50.0%" /></p>
+<p>Finally, we can get really creative and create some custom currency inputs:</p>
+<pre class="r"><code>## Add a K and divide by 1000 when not unfocused
+autonumericInput(
+  inputId = &quot;id2&quot;,
+  label = &quot;Custom Thousands of Dollars Input&quot;,
+  value = 1234.56,
+  align = &quot;right&quot;,
+  currencySymbol = &quot;$&quot;,
+  currencySymbolPlacement = &quot;p&quot;,
+  decimalCharacter = &quot;.&quot;,
+  digitGroupSeparator = &quot;,&quot;,
+  divisorWhenUnfocused = 1000,
+  symbolWhenUnfocused = &quot;K&quot;,
+  width = &quot;50%&quot;
+)
+
+## Add a (millions) and divide by 1,000,000 when unfocused
+autonumericInput(
+  inputId = &quot;id3&quot;,
+  label = &quot;Custom Millions of Euros Input with Positive Sign&quot;,
+  value = 12345678910,
+  align = &quot;right&quot;,
+  currencySymbol = &quot;\u20ac&quot;,
+  currencySymbolPlacement = &quot;s&quot;,
+  decimalCharacter = &quot;,&quot;,
+  digitGroupSeparator = &quot;.&quot;,
+  divisorWhenUnfocused = 1000000,
+  symbolWhenUnfocused = &quot; (millions)&quot;,
+  showPositiveSign = TRUE,
+  width = &quot;50%&quot;
+)</code></pre>
+<p><img src="resources/blog/2021-09-03/custom-autonumeric-1.PNG" style="width:50.0%" /></p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>The Autonumeric library is extremely powerful and is now available to use in shiny applications in R. With it, shiny applications can more easily be used in business settings where monetary and percent inputs are common, but its use extends far beyond those areas. Essentially any kind of number input is at ones fingertips with this tool.</p>
+<p>I hope this was helpful and informative. Don’t forget to check out the resources provided here for further guidance, and please reach out with any questions!</p>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<ul>
+<li><a href="">Interactive App:</a></li>
+<li><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets Github:</a> <a href="https://github.com/dreamRs/shinyWidgets" class="uri">https://github.com/dreamRs/shinyWidgets</a></li>
+<li><a href="https://rdrr.io/github/dreamRs/shinyWidgets/man/autonumericInput.html">shinyWidgets Documentation:</a> <a href="https://rdrr.io/github/dreamRs/shinyWidgets/man/autonumericInput.html" class="uri">https://rdrr.io/github/dreamRs/shinyWidgets/man/autonumericInput.html</a></li>
+<li><a href="http://autonumeric.org/">Autonumeric Web site:</a> <a href="http://autonumeric.org/" class="uri">http://autonumeric.org/</a></li>
+<li><a href="https://github.com/autoNumeric/autoNumeric">Autonumeric Github:</a> <a href="https://github.com/autoNumeric/autoNumeric" class="uri">https://github.com/autoNumeric/autoNumeric</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

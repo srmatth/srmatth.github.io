@@ -1,6 +1,49 @@
 ---
-title: "Blog"
+title: "spenceR blog"
 output: html_document
 ---
 
-The landing page for my blog about R and data science
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(shiny)
+```
+
+
+Name in progress.
+
+<hr style="border-color:#192F4D;margin-top:0;border-top:2px solid;"/>
+
+## <a href="blog-2021-09-03.html">Autonumeric Inputs in R!</a>
+
+<hr style="border-color:#192F4D;margin:0;"/>
+
+```{r}
+
+fluidRow(
+  column(
+    width = 3,
+    tags$img(
+      src = "resources/blog/2021-09-03/preset-inputs-2.PNG",
+      width = "100%"
+    )
+  ),
+  column(
+    width = 9,
+    p(
+      "A short post about a (somewhat) recent addition to {shinyWidgets} that allows for beautifully formatted numeric inputs in {shiny} applications.",
+      style = "font-size: 14pt"
+    ),
+    p(
+      "Date: 2021-09-03",
+      style = "color:#6D2231; font-size: 14pt; padding-top:15px; font-weight:bold;"
+    ),
+    p(
+      "Categories: R, Shiny",
+      style = "color:#6D2231; font-size: 14pt; font-weight: bold;"
+    )
+  )
+)
+
+```
+
+<hr style="border-color:#192F4D;margin-top:0;border-top:2px solid;"/>
