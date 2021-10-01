@@ -1,0 +1,63 @@
+---
+title: "Presentation Portfolio"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(shiny)
+```
+
+```{css}
+h2, h3, h4, h5, h6{
+  text-align:center;
+}
+```
+
+<hr style="border-top: 1px solid black">
+
+## mSHAP Presentation at IME 2021 {#mshap}
+
+```{r}
+fluidRow(
+  column(
+    width = 6,
+    offset = 3,
+    tags$a(
+      tags$img(src = "resources/portfolio/mshap_pres.PNG", width = "100%", style = "padding-bottom: 10px;"),
+      href = "resources/mshap_slides.pdf"
+    )
+  )
+)
+```
+
+
+The [mSHAP research](https://srmatth.github.io/research-mshap.html) was presented at the 24th International Insurance: Mathematics and Economics Conference on July 8th, 2021. [View the slides here](resources/mshap_slides.pdf) or [see a transcript of the talk here.](resources/mshap_talk.pdf)
+The actual talk can be viewed (with an actuview account) [at this website](https://www.actuview.com/video/mSHAP-Explainability-of-Two-Part-Models/a70f5b18d1f1e39cd51d65f73440b6a1).
+
+<hr style="border-top: 1px solid black">
+
+## Beach Volleyball Clustering Analysis {#volleyball}
+
+```{r}
+fluidRow(
+  column(
+    width = 6,
+    offset = 3,
+    tags$a(
+      tags$img(src = "resources/portfolio/volleyball_partners.jpg", width = "100%", style = "padding-bottom: 10px;"),
+      href = "resources/volleyball_partners.pdf"
+    )
+  )
+)
+```
+
+
+A small personal project I created to submit a poster to the [UConn Sports Analytics Symposium 2021 (UCSAS)](https://statds.org/events/ucsas2021/index.html).
+The poster documents the clustering of men's beach volleyball players into distinct groups and then analyzing the performance of different pairings of the groups.
+Because of the virtual format of the conference, "posters" consisted of four slides.
+[See the poster here.](resources/volleyball_partners.pdf)
+
+<hr style="border-top: 1px solid black">
+
+

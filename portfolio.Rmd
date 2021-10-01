@@ -83,6 +83,13 @@ fluidRow(
       tags$img(src = "resources/portfolio/mshap_pres.PNG", width = "100%", style = "padding-bottom: 10px;"),
       href = "portfolio-pres.html#mshap"
     )
+  ),
+  column(
+    width = 4,
+    tags$a(
+      tags$img(src = "resources/portfolio/volleyball_partners.jpg", width = "100%", style = "padding-bottom: 10px;"),
+      href = "portfolio-pres.html#volleyball"
+    )
   )
 )
 ```
