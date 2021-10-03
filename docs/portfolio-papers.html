@@ -11,7 +11,7 @@
 
 
 
-<title>Portfolio</title>
+<title>Paper Portfolio</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -289,7 +289,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Portfolio</h1>
+<h1 class="title toc-ignore">Paper Portfolio</h1>
 
 </div>
 
@@ -299,60 +299,21 @@ h2, h3, h4, h5, h6{
   text-align:center;
 }
 </style>
-<p>As my interests are wide in scope, this portfolio is not limited to any specific type of content. Though it will largely focus on my efforts in data science and statistics, it may also include other areas of my life including writing, art, and photography.</p>
-<hr />
-<div id="data-visualizations" class="section level2">
-<h2><a href="portfolio-dataviz.html">Data Visualizations</a></h2>
-<div class="row">
-<div class="col-sm-4">
-<a href="portfolio-dataviz.html#lemur">
-<img src="resources/portfolio/2021-08-24.jpeg" width="100%"/>
-</a>
+<p>A list of papers I have contributed to, ordered by descending date.</p>
+<hr style="border-top: 1px solid black">
+<div id="mshap" class="section level2">
+<h2>mSHAP: SHAP Values for Two-Part Models</h2>
+<div class="col_6" style="text-align:center">
+<p><a href="https://arxiv.org/abs/2106.08990"> <i class="fas fa-external-link-alt" style="font-size:30pt"></i> <br> View the Paper on arXiv </a></p>
 </div>
-<div class="col-sm-8">
-<a href="portfolio-dataviz.html#olympic">
-<img src="resources/portfolio/2021-07-27.jpg" width="100%"/>
-</a>
+<div class="col_6" style="text-align:center">
+<p><a href="resources/mSHAP_2021_06_15.pdf"> <i class="fas fa-file-download" style="font-size:30pt"></i> <br> Download a PDF of the paper </a></p>
 </div>
 </div>
-<hr />
-</div>
-<div id="statistical-papers" class="section level2">
-<h2><a href="portfolio-papers.html">Statistical Papers</a></h2>
-<div class="row">
-<div class="col-sm-2">
-<a href="portfolio-papers.html#mshap">
-<img src="resources/portfolio/mshap_thumbnail.PNG" width="100%"/>
-</a>
-</div>
-</div>
-<hr />
-</div>
-<div id="shiny-applications" class="section level2">
-<h2><a href="portfolio-apps.html">Shiny Applications</a></h2>
-<div class="row">
-<div class="col-sm-4">
-<a href="portfolio-apps.html#historicalInvesting">
-<img src="resources/portfolio/historical_investing_screenshot.PNG" width="100%"/>
-</a>
-</div>
-</div>
-<hr />
-</div>
-<div id="presentations" class="section level2">
-<h2><a href="portfolio-pres.html">Presentations</a></h2>
-<div class="row">
-<div class="col-sm-4">
-<a href="portfolio-pres.html#mshap">
-<img src="resources/portfolio/mshap_pres.PNG" width="100%" style="padding-bottom: 10px;"/>
-</a>
-</div>
-<div class="col-sm-4">
-<a href="portfolio-pres.html#volleyball">
-<img src="resources/portfolio/volleyball_partners.jpg" width="100%" style="padding-bottom: 10px;"/>
-</a>
-</div>
-</div>
+<div id="abstract" class="section level2">
+<h2>Abstract</h2>
+<p>Two-part models are important to and used throughout insurance and actuarial science. Since insurance is required for registering a car, obtaining a mortgage, and participating in certain businesses, it is especially important that the models which price insurance policies are fair and non-discriminatory. Black box models can make it very difficult to know which covariates are influencing the results, leading to model risk and bias. SHAP values enable interpretation of various black box models, but little progress has been made in two-part models. In this paper, we propose mSHAP (or multiplicative SHAP), a method for computing SHAP values of two-part models using the SHAP values of the individual models. This method will allow for the predictions of two-part models to be explained at an individual observation level. After developing mSHAP, we perform an in-depth simulation study. Although the kernelSHAP algorithm is also capable of computing approximate SHAP values for a two-part model, a comparison with our method demonstrates that mSHAP is exponentially faster. Ultimately, we apply mSHAP to a two-part ratemaking model for personal auto property damage insurance coverage. Additionally, an R package (mshap) is available to easily implement the method in a wide variety of applications.</p>
+<hr style="border-top: 1px solid black">
 </div>
 
 

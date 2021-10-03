@@ -1,0 +1,53 @@
+---
+title: "Data Visualization Portfolio"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(shiny)
+```
+
+```{css}
+h2, h3, h4, h5, h6{
+  text-align:center;
+}
+```
+
+This page contains a curated portfolio of data visualizations that I have created.
+
+<hr style="border-top: 1px solid black">
+
+## Tidy Tuesday Data Visualizations
+
+Every week, [rfordatascience](https://github.com/rfordatascience/tidytuesday) releases a new data set specifically geared for data visualization.
+I greatly enjoy giving myself an hour to see what I can come up with from the data, and I'll display some of my best results here, with the most recent ones at the top.
+
+### Lemurs (2021-08-24) {#lemur}
+
+```{r}
+fluidRow(
+  style = "padding: 5px; background-color:black;",
+    a(
+      tags$img(src = "resources/portfolio/2021-08-24.jpeg", width = "100%"),
+      href = "resources/portfolio/2021-08-24.jpeg"
+    )
+)
+```
+
+<br/>
+
+### Olympic Medalists (2021-07-27) {#olympic}
+
+```{r}
+fluidRow(
+  style = "padding: 5px; background-color:black;",
+    a(
+      tags$img(src = "resources/portfolio/2021-07-27.jpg", width = "100%"),
+      href = "resources/portfolio/2021-07-27.jpg"
+    )
+)
+```
+
+<hr style="border-top: 1px solid black">
+

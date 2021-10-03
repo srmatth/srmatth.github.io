@@ -1,9 +1,24 @@
 ---
-title: "<div style='text-align:right; font-size:14pt;'><a href='research.html'>Back to Research Page</a></div>mSHAP: SHAP Values for Two-Part Models"
+title: "Paper Portfolio"
 output: html_document
 ---
 
-*Joint work with Brian Hartman*
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(shiny)
+```
+
+```{css}
+h2, h3, h4, h5, h6{
+  text-align:center;
+}
+```
+
+A list of papers I have contributed to, ordered by descending date.
+
+<hr style="border-top: 1px solid black">
+
+## mSHAP: SHAP Values for Two-Part Models {#mshap}
 
 <div class='col_6' style='text-align:center'>
   <a href="https://arxiv.org/abs/2106.08990">
@@ -30,13 +45,5 @@ After developing mSHAP, we perform an in-depth simulation study.
 Although the kernelSHAP algorithm is also capable of computing approximate SHAP values for a two-part model, a comparison with our method demonstrates that mSHAP is exponentially faster.
 Ultimately, we apply mSHAP to a two-part ratemaking model for personal auto property damage insurance coverage. Additionally, an R package (mshap) is available to easily implement the method in a wide variety of applications.
 
-## Other Resources
-
-This research was presented at the 24th International Insurance: Mathematics and Economics Conference on July 8th, 2021. [View the slides here](resources/mshap_slides.pdf) or [see a transcript of the talk here.](resources/mshap_talk.pdf)
-The actual talk can be viewed (with an actuview account) [at this website](https://www.actuview.com/video/mSHAP-Explainability-of-Two-Part-Models/a70f5b18d1f1e39cd51d65f73440b6a1).
-
-For more information on the `{mSHAP}` `R` package:
-
-- [The mSHAP github page](https://github.com/srmatth/mshap)
-- [The CRAN mSHAP page](https://CRAN.R-project.org/package=mshap)
+<hr style="border-top: 1px solid black">
 

@@ -1,0 +1,44 @@
+---
+title: "Shiny Application Portfolio"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(shiny)
+```
+
+```{css}
+h2, h3, h4, h5, h6{
+  text-align:center;
+}
+```
+
+I do enjoy creating interactive R shiny applications where the end user is able to do so much more exploration of the results.
+All my shiny applications are developed within the [golem](https://github.com/ThinkR-open/golem) framework, which I would highly recommend adapting if you are considering developing a shiny application.
+As a side note, many shiny applications I have developed are not included on this page, as they are proprietary material of the firm I worked for and cannot be available publicly.
+
+<hr style="border-top: 1px solid black">
+
+## Historical Investing Shiny App
+
+<div class='col_6' style='text-align:center'>
+  <a href="https://spencermatthews.shinyapps.io/historicalInvesting/">
+    <i class="fas fa-external-link-alt" style="font-size:30pt"></i>
+    <br>
+    View a Live Version of the App
+  </a>
+</div>
+
+<div class='col_6' style='text-align:center'>
+  <a href="https://github.com/srmatth/historicalInvesting">
+    <i class="fab fa-github" style="font-size:30pt"></i>
+    <br>
+    View the Source Code on GitHub
+  </a>
+</div>
+
+This application was developed so that users could draw from historical stock data and create charts of stock prices.
+The resulting charts can be customized extensively, and downloaded as well.
+
+<hr style="border-top: 1px solid black">

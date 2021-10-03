@@ -26,11 +26,11 @@ Though it will largely focus on my efforts in data science and statistics, it ma
 fluidRow(
   column(
     width = 4,
-    tags$a(tags$img(src = "resources/portfolio/2021-08-24.jpeg", width = "100%"), href = "portfolio-dataviz.html")
+    tags$a(tags$img(src = "resources/portfolio/2021-08-24.jpeg", width = "100%"), href = "portfolio-dataviz.html#lemur")
   ),
   column(
     width = 8,
-    tags$a(tags$img(src = "resources/portfolio/2021-07-27.jpg", width = "100%"), href = "portfolio-dataviz.html")
+    tags$a(tags$img(src = "resources/portfolio/2021-07-27.jpg", width = "100%"), href = "portfolio-dataviz.html#olympic")
   )
 )
 
