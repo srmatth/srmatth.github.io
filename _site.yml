@@ -12,6 +12,8 @@ navbar:
       href: github_projects.html
     - text: "Blog"
       href: blog.html
+    - text: "Resume"
+      href: resources/resume_sep_2021.pdf
   right:
     - href: mailto:spencer.matthews@uci.edu
       icon: fa-envelope
