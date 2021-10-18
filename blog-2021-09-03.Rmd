@@ -1,5 +1,5 @@
 ---
-title: "Autonumeric Inputs in R!"
+title: "<div style='text-align:right; font-size:14pt;'><a href='blog.html'>Back to Blog Home</a></div>Autonumeric Inputs in R!"
 output: html_document
 ---
 

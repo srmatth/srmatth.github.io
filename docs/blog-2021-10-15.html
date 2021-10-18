@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>blog-2021-10-15.knit</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.19/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="site_libs/dt-ext-scroller-1.10.20/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="site_libs/dt-ext-scroller-1.10.20/js/dataTables.scroller.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="resources/favicon.png"/>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="resources/new.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Spencer Matthews</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="portfolio.html">Portfolio</a>
+</li>
+<li>
+  <a href="github_projects.html">Github Projects</a>
+</li>
+<li>
+  <a href="blog.html">Blog</a>
+</li>
+<li>
+  <a href="resources/resume_sep_2021.pdf">Resume</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:spencer.matthews@uci.edu">
+    <span class="fa fa-envelope"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/srmatth">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://linkedin.com/in/spencer-reed-matthews/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><div style="text-align:right; font-size:14pt;">
+<a href='blog.html'>Back to Blog Home</a>
+</div>
+DT (datatables) in R</h1>
+
+</div>
+
+
+<p>One of the most convenient ways to display data is in a table format because, let’s face it, people often want to see the exact numbers. Granted, tables can’t show a large dataset, and some relationships between variables are missed when the data is displayed in table format, but at times it is essential that the data be displayed verbatim. Enter <code>{DT}</code>, an <code>R</code> interface for the <code>DataTables</code> library.</p>
+<p><code>DataTables</code> is a widely used JavaScript library for creating tables in HTML format. These tables can easily be used in R shiny applications, RMarkdown reports, or even blog posts, like this one. There is an extensive knowledge base on the <a href="https://rstudio.github.io/DT/">Rstudio Github Page</a> that answers many common questions and use cases. Plus, <code>{DT}</code> is so widely used it is rare that there isn’t a stack overflow question to the issue you are facing. So why am I writing this blog post?</p>
+<p>As a dedicated user of <code>{DT}</code> over the past couple of years, especially in several different <code>{shiny}</code> applications, I have learned a lot about the package. I love it, and it is powerful, but there are some tricks to working with it that I couldn’t find elsewhere on the web.</p>
+<p>This blog post will take you through some of my favorite ways to work with <code>{DT}</code>.</p>
+<div id="basic-table-creation-and-the-dom" class="section level2">
+<h2>Basic Table Creation and the DOM</h2>
+<p>In order to motivate this section of the post, we will need some example data. I will use the CO2 dataset that comes in the <code>{datasets}</code> package.</p>
+<pre class="r"><code>data(&quot;CO2&quot;)
+head(CO2)</code></pre>
+<pre><code>##   Plant   Type  Treatment conc uptake
+## 1   Qn1 Quebec nonchilled   95   16.0
+## 2   Qn1 Quebec nonchilled  175   30.4
+## 3   Qn1 Quebec nonchilled  250   34.8
+## 4   Qn1 Quebec nonchilled  350   37.2
+## 5   Qn1 Quebec nonchilled  500   35.3
+## 6   Qn1 Quebec nonchilled  675   39.2</code></pre>
+<p>Now, we will pipe that into the <code>datatable()</code> function from <code>{DT}</code> to see the default output.</p>
+<pre class="r"><code>CO2 %&gt;%
+  DT::datatable()</code></pre>
+<div id="htmlwidget-f06ad19783d3a3e083df" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f06ad19783d3a3e083df">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84"],["Qn1","Qn1","Qn1","Qn1","Qn1","Qn1","Qn1","Qn2","Qn2","Qn2","Qn2","Qn2","Qn2","Qn2","Qn3","Qn3","Qn3","Qn3","Qn3","Qn3","Qn3","Qc1","Qc1","Qc1","Qc1","Qc1","Qc1","Qc1","Qc2","Qc2","Qc2","Qc2","Qc2","Qc2","Qc2","Qc3","Qc3","Qc3","Qc3","Qc3","Qc3","Qc3","Mn1","Mn1","Mn1","Mn1","Mn1","Mn1","Mn1","Mn2","Mn2","Mn2","Mn2","Mn2","Mn2","Mn2","Mn3","Mn3","Mn3","Mn3","Mn3","Mn3","Mn3","Mc1","Mc1","Mc1","Mc1","Mc1","Mc1","Mc1","Mc2","Mc2","Mc2","Mc2","Mc2","Mc2","Mc2","Mc3","Mc3","Mc3","Mc3","Mc3","Mc3","Mc3"],["Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi"],["nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled"],[95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000],[16,30.4,34.8,37.2,35.3,39.2,39.7,13.6,27.3,37.1,41.8,40.6,41.4,44.3,16.2,32.4,40.3,42.1,42.9,43.9,45.5,14.2,24.1,30.3,34.6,32.5,35.4,38.7,9.3,27.3,35,38.8,38.6,37.5,42.4,15.1,21,38.1,34,38.9,39.6,41.4,10.6,19.2,26.2,30,30.9,32.4,35.5,12,22,30.6,31.8,32.4,31.1,31.5,11.3,19.4,25.8,27.9,28.5,28.1,27.8,10.5,14.9,18.1,18.9,19.5,22.2,21.9,7.7,11.4,12.3,13,12.5,13.7,14.4,10.6,18,17.9,17.9,17.9,18.9,19.9]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Plant<\/th>\n      <th>Type<\/th>\n      <th>Treatment<\/th>\n      <th>conc<\/th>\n      <th>uptake<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>There are a few things I change right away, depending on the use case.</p>
+<ul>
+<li>I generally get rid of the row names, I don’t like an additional column of integers</li>
+<li>I rename the columns to make the names “prettier”</li>
+<li>I remove the paging and instead add a vertical scrollbar</li>
+<li>I remove the search bar</li>
+</ul>
+<pre class="r"><code>CO2 %&gt;%
+  DT::datatable(
+    rownames = FALSE, # remove row names
+    colnames = c(
+      &quot;Plant Identifier&quot;,
+      &quot;Origin of the Plant&quot;,
+      &quot;Treatment&quot;,
+      &quot;CO2 Concentration&quot;,
+      &quot;Uptake Rates&quot;
+    ), # set the column names to be pretty
+    options = list(
+      dom = &quot;t&quot;,
+      scrollY = 250, # Sets the height of the scrolling window, in pixels
+      scroller = TRUE
+    ),
+    extensions = &quot;Scroller&quot; # Allows us to have the vertical scrollbar
+  )</code></pre>
+<div id="htmlwidget-11c6f787f33c01d26fa2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11c6f787f33c01d26fa2">{"x":{"filter":"none","vertical":false,"extensions":["Scroller"],"data":[["Qn1","Qn1","Qn1","Qn1","Qn1","Qn1","Qn1","Qn2","Qn2","Qn2","Qn2","Qn2","Qn2","Qn2","Qn3","Qn3","Qn3","Qn3","Qn3","Qn3","Qn3","Qc1","Qc1","Qc1","Qc1","Qc1","Qc1","Qc1","Qc2","Qc2","Qc2","Qc2","Qc2","Qc2","Qc2","Qc3","Qc3","Qc3","Qc3","Qc3","Qc3","Qc3","Mn1","Mn1","Mn1","Mn1","Mn1","Mn1","Mn1","Mn2","Mn2","Mn2","Mn2","Mn2","Mn2","Mn2","Mn3","Mn3","Mn3","Mn3","Mn3","Mn3","Mn3","Mc1","Mc1","Mc1","Mc1","Mc1","Mc1","Mc1","Mc2","Mc2","Mc2","Mc2","Mc2","Mc2","Mc2","Mc3","Mc3","Mc3","Mc3","Mc3","Mc3","Mc3"],["Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Quebec","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi","Mississippi"],["nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","nonchilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled","chilled"],[95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000,95,175,250,350,500,675,1000],[16,30.4,34.8,37.2,35.3,39.2,39.7,13.6,27.3,37.1,41.8,40.6,41.4,44.3,16.2,32.4,40.3,42.1,42.9,43.9,45.5,14.2,24.1,30.3,34.6,32.5,35.4,38.7,9.3,27.3,35,38.8,38.6,37.5,42.4,15.1,21,38.1,34,38.9,39.6,41.4,10.6,19.2,26.2,30,30.9,32.4,35.5,12,22,30.6,31.8,32.4,31.1,31.5,11.3,19.4,25.8,27.9,28.5,28.1,27.8,10.5,14.9,18.1,18.9,19.5,22.2,21.9,7.7,11.4,12.3,13,12.5,13.7,14.4,10.6,18,17.9,17.9,17.9,18.9,19.9]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Plant Identifier<\/th>\n      <th>Origin of the Plant<\/th>\n      <th>Treatment<\/th>\n      <th>CO2 Concentration<\/th>\n      <th>Uptake Rates<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollY":250,"scroller":true,"columnDefs":[{"className":"dt-right","targets":[3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>I think the table we just created is much cleaner than the one above, but you are allowed to disagree.</p>
+<p>A couple of notes on what just happened. Setting <code>dom = "t"</code> displays only the table, and none of the other fancy stuff. Exact details about all possible values that <code>dom</code> can take can be found <a href="https://datatables.net/reference/option/dom">on the DataTables API reference page</a>, but I typically just set it to “t” for table. Unless I’m getting fancy, which I usually am not.</p>
+<p>Another note is that the <code>options</code> argument is a list, and some of the options will also take lists, so you may end up with multiple nested lists inside your function. This is ugly, I know, but it is necessary for the way the data parsing works when communicating between R and JavaScript.</p>
+<p>When doing vertical scrolling, both <code>scroller = TRUE</code> and <code>extensions = "Scroller"</code> are necessary. Otherwise there will be issues.</p>
+<p>One final note. I’m not going to go over buttons in this blog post, but often in shiny applications the users want to be able to download the data they see in the data table. Be aware that there is a DT extension for a download button that you can specify. However, I find it to be buggy. Also, if you datatable is long, <code>{DT}</code> only loads the data as the user scrolls, meaning that the downloaded data is not the entire table but just a portion of it. Most often, when coding data downloads in shiny applications, I use the <code>shiny::downloadButton()</code> and <code>shiny::downloadHandler()</code> to take care of it. That’s saved me a lot of headaches.</p>
+</div>
+<div id="formatting-functions" class="section level2">
+<h2>Formatting Functions</h2>
+<p>Sometimes we want to format a specific column or a specific row. Well, actually all the time. Rarely have I created a table where I don’t need to format something in a particular way. For this section, let’s consider the Johnson and Johnson quarterly earnings per share from the <code>{datasets}</code> package, with some additional variables we create. Note that due to this data being in a time-series object we have to do some additional manipulation at the beginning.</p>
+<pre class="r"><code>data(&quot;JohnsonJohnson&quot;)
+JJ &lt;- data.frame(Y=as.matrix(JohnsonJohnson), date=time(JohnsonJohnson)) %&gt;%
+  dplyr::mutate(year = floor(date)) %&gt;%
+  dplyr::group_by(year) %&gt;%
+  dplyr::summarize(yearly_earnings = sum(Y)) %&gt;%
+  dplyr::ungroup() %&gt;%
+  dplyr::mutate(
+    pct_growth = (yearly_earnings / lag(yearly_earnings)) - 1
+  )</code></pre>
+<p>Now, we can pipe this data into our “cleaner” data table format from above.</p>
+<pre class="r"><code>JJ %&gt;%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      &quot;Year&quot;,
+      &quot;Earnings&quot;,
+      &quot;Earnings Growth&quot;
+    ),
+    options = list(
+      dom = &quot;t&quot;,
+      scrollY = 250,
+      scroller = TRUE
+    ),
+    extensions = &quot;Scroller&quot;
+  )</code></pre>
+<div id="htmlwidget-1f7793c2383606035d0e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1f7793c2383606035d0e">{"x":{"filter":"none","vertical":false,"extensions":["Scroller"],"data":[[1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980],[2.63,2.77,3.01,3.4,4.16,5.16,6.06,6.81,8.19,9.54,13.5,16.29,19.35,23.31,25.2,28.62,31.77,38.07,45,51.84,58.5],[null,0.0532319391634981,0.0866425992779782,0.129568106312292,0.223529411764706,0.240384615384615,0.174418604651163,0.123762376237624,0.202643171806167,0.164835164835165,0.415094339622641,0.206666666666667,0.187845303867404,0.204651162790698,0.0810810810810811,0.135714285714286,0.110062893081761,0.198300283286119,0.182033096926714,0.152,0.128472222222222]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Earnings<\/th>\n      <th>Earnings Growth<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollY":250,"scroller":true,"columnDefs":[{"className":"dt-right","targets":[0,1,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>However, we quickly see the issue with doing this. First, it is unclear what we are displaying in the Earnings column. You will likely assume that it is dollars, but there is no sure way to tell. Furthermore, all the decimal places in the Earnings Growth column are just plain ugly.</p>
+<p>Luckily, there are some neat functions in <code>{DT}</code> to fix that, and they fall under the <code>DT::format*()</code> family of functions. Two of the ones I use the most are <code>DT::formatCurrency()</code> and <code>DT::formatPercentage()</code>. I will also use <code>DT::formatRound()</code> fairly frequently.</p>
+<p>Let’s see what the table looks like with formatted columns</p>
+<pre class="r"><code>JJ %&gt;%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      &quot;Year&quot;,
+      &quot;Earnings&quot;,
+      &quot;Earnings Growth&quot;
+    ),
+    options = list(
+      dom = &quot;t&quot;,
+      scrollY = 250,
+      scroller = TRUE
+    ),
+    extensions = &quot;Scroller&quot;
+  ) %&gt;%
+  DT::formatCurrency(
+    columns = c(&quot;yearly_earnings&quot;),
+    digits = 2,
+    currency = &quot;$&quot;
+  ) %&gt;%
+  DT::formatPercentage(
+    columns = &quot;pct_growth&quot;,
+    digits = 2
+  )</code></pre>
+<div id="htmlwidget-943c56f69c03630c053e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-943c56f69c03630c053e">{"x":{"filter":"none","vertical":false,"extensions":["Scroller"],"data":[[1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980],[2.63,2.77,3.01,3.4,4.16,5.16,6.06,6.81,8.19,9.54,13.5,16.29,19.35,23.31,25.2,28.62,31.77,38.07,45,51.84,58.5],[null,0.0532319391634981,0.0866425992779782,0.129568106312292,0.223529411764706,0.240384615384615,0.174418604651163,0.123762376237624,0.202643171806167,0.164835164835165,0.415094339622641,0.206666666666667,0.187845303867404,0.204651162790698,0.0810810810810811,0.135714285714286,0.110062893081761,0.198300283286119,0.182033096926714,0.152,0.128472222222222]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Earnings<\/th>\n      <th>Earnings Growth<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollY":250,"scroller":true,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"className":"dt-right","targets":[0,1,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+<p>Much better! Note here that when you specify the columns, you specify the actual name of the column, not the pretty name you gave it in the <code>DT::datatable()</code> function.</p>
+<p>But there’s still one more formatting trick that I often apply to spice up the table a little bit more. I like to color the rows based on the value of one column. In this case, let’s color the columns based on fixed breaks: under 15%, 15%-20%, and over 20%.</p>
+<pre class="r"><code>JJ %&gt;%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      &quot;Year&quot;,
+      &quot;Earnings&quot;,
+      &quot;Earnings Growth&quot;
+    ),
+    options = list(
+      dom = &quot;t&quot;,
+      scrollY = 250,
+      scroller = TRUE
+    ),
+    extensions = &quot;Scroller&quot;
+  ) %&gt;%
+  DT::formatCurrency(
+    columns = c(&quot;yearly_earnings&quot;),
+    digits = 2,
+    currency = &quot;$&quot;
+  ) %&gt;%
+  DT::formatPercentage(
+    columns = &quot;pct_growth&quot;,
+    digits = 2
+  ) %&gt;%
+  DT::formatStyle(
+    columns = &quot;pct_growth&quot;, # the column the color is based on
+    target = &quot;row&quot;, # We are coloring the entire row here
+    backgroundColor = DT::styleInterval(
+      cuts = c(0.15, 0.20),
+      values = c(&quot;#D7FEE1&quot;, &quot;#5FFC86&quot;, &quot;#04DC3A&quot;)
+    )
+  )</code></pre>
+<div id="htmlwidget-332d4ecf3e532b0b1bff" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-332d4ecf3e532b0b1bff">{"x":{"filter":"none","vertical":false,"extensions":["Scroller"],"data":[[1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980],[2.63,2.77,3.01,3.4,4.16,5.16,6.06,6.81,8.19,9.54,13.5,16.29,19.35,23.31,25.2,28.62,31.77,38.07,45,51.84,58.5],[null,0.0532319391634981,0.0866425992779782,0.129568106312292,0.223529411764706,0.240384615384615,0.174418604651163,0.123762376237624,0.202643171806167,0.164835164835165,0.415094339622641,0.206666666666667,0.187845303867404,0.204651162790698,0.0810810810810811,0.135714285714286,0.110062893081761,0.198300283286119,0.182033096926714,0.152,0.128472222222222]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Earnings<\/th>\n      <th>Earnings Growth<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","scrollY":250,"scroller":true,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"className":"dt-right","targets":[0,1,2]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[2]; $(row).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.15 ? \"#D7FEE1\" : value <= 0.2 ? \"#5FFC86\" : \"#04DC3A\"});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
+<p>And those are just some of the formatting functions that I commonly use when creating a <code>{DT}</code> data table!</p>
+</div>
+<div id="custom-container" class="section level2">
+<h2>Custom Container</h2>
+<p>In addition to adding formatting options specific to your use case, one thing that really sets a data table apart is a custom header built specifically for your data. This takes a little bit of extra effort, and can be tedious at times but the final result is definitely worth it.</p>
+<p>To motivate this example, let’s work with some (fake) sales data for a company.</p>
+<pre class="r"><code>sales_dat &lt;- data.frame(
+  region = c(&quot;Northwest&quot;, &quot;Southwest&quot;, &quot;Central&quot;, &quot;Northeast&quot;, &quot;South&quot;),
+  sales_2019_q1 = c(56349, 39281, 77743, 89832, 89891),
+  sales_2019_q2 = c(32345, 43445, 65664, 56784, 45333),
+  sales_2019_q3 = c(25365, 45444, 56789, 97888, 63778),
+  sales_2019_q4 = c(32456, 45367, 45555, 69700, 24536),
+  sales_2020_q1 = c(56349, 39281, 77743, 89832, 89891) * 0.9,
+  sales_2020_q2 = c(32345, 43445, 65664, 56784, 45333) * 0.7,
+  sales_2020_q3 = c(25365, 45444, 56789, 97888, 63778) * 0.85,
+  sales_2020_q4 = c(32456, 45367, 45555, 69700, 24536) * 0.95
+)
+sales_dat</code></pre>
+<pre><code>##      region sales_2019_q1 sales_2019_q2 sales_2019_q3 sales_2019_q4
+## 1 Northwest         56349         32345         25365         32456
+## 2 Southwest         39281         43445         45444         45367
+## 3   Central         77743         65664         56789         45555
+## 4 Northeast         89832         56784         97888         69700
+## 5     South         89891         45333         63778         24536
+##   sales_2020_q1 sales_2020_q2 sales_2020_q3 sales_2020_q4
+## 1       50714.1       22641.5      21560.25      30833.20
+## 2       35352.9       30411.5      38627.40      43098.65
+## 3       69968.7       45964.8      48270.65      43277.25
+## 4       80848.8       39748.8      83204.80      66215.00
+## 5       80901.9       31733.1      54211.30      23309.20</code></pre>
+<p>A typical display of this might look like the following:</p>
+<pre class="r"><code>sales_dat %&gt;%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      &quot;Region&quot;,
+      &quot;2019 Q1 Sales&quot;,
+      &quot;2019 Q2 Sales&quot;,
+      &quot;2019 Q3 Sales&quot;,
+      &quot;2019 Q4 Sales&quot;,
+      &quot;2020 Q1 Sales&quot;,
+      &quot;2020 Q2 Sales&quot;,
+      &quot;2020 Q3 Sales&quot;,
+      &quot;2020 Q4 Sales&quot;
+    ),
+    options = list(
+      dom = &quot;t&quot;,
+      pageLength = 10
+    )
+  ) %&gt;%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = &quot;$&quot;
+  )</code></pre>
+<div id="htmlwidget-dfcdd5b0d0a319a6f158" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dfcdd5b0d0a319a6f158">{"x":{"filter":"none","vertical":false,"data":[["Northwest","Southwest","Central","Northeast","South"],[56349,39281,77743,89832,89891],[32345,43445,65664,56784,45333],[25365,45444,56789,97888,63778],[32456,45367,45555,69700,24536],[50714.1,35352.9,69968.7,80848.8,80901.9],[22641.5,30411.5,45964.8,39748.8,31733.1],[21560.25,38627.4,48270.65,83204.8,54211.3],[30833.2,43098.65,43277.25,66215,23309.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Region<\/th>\n      <th>2019 Q1 Sales<\/th>\n      <th>2019 Q2 Sales<\/th>\n      <th>2019 Q3 Sales<\/th>\n      <th>2019 Q4 Sales<\/th>\n      <th>2020 Q1 Sales<\/th>\n      <th>2020 Q2 Sales<\/th>\n      <th>2020 Q3 Sales<\/th>\n      <th>2020 Q4 Sales<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":10,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":7,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":8,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.columnDefs.6.render","options.columnDefs.7.render"],"jsHooks":[]}</script>
+<p>Note the <code>fillContainer = TRUE</code> argument that makes sure the header scrolls horizontally with the rest of the table.</p>
+<p>However, there is a lot of redundancy to the column names, and I think we can make it look cleaner. We will do this by creating a custom table container, where we manually created the header. The exact location in the github pages site where it explains how to do this is <a href="https://rstudio.github.io/DT/#custom-table-container">here</a>, but essentially it just involves creating an html object that then gets passed into the <code>DT::datatable()</code> function. Note that when a container is passed, the <code>colnames</code> argument is omitted.</p>
+<pre class="r"><code>sketch &lt;- htmltools::withTags(table(
+  class = &#39;display&#39;,
+  thead(
+    tr(
+      th(rowspan = 2, &#39;Region&#39;),
+      th(colspan = 4, &#39;2019&#39;),
+      th(colspan = 4, &#39;2020&#39;)
+    ),
+    tr(
+      th(&quot;Q1&quot;),
+      th(&quot;Q2&quot;),
+      th(&quot;Q3&quot;),
+      th(&quot;Q4&quot;),
+      th(&quot;Q1&quot;),
+      th(&quot;Q2&quot;),
+      th(&quot;Q3&quot;),
+      th(&quot;Q4&quot;),
+    )
+  )
+))
+
+sales_dat %&gt;%
+  DT::datatable(
+    rownames = FALSE,
+    container = sketch,
+    options = list(
+      dom = &quot;t&quot;,
+      pageLength = 10
+    )
+  ) %&gt;%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = &quot;$&quot;
+  )</code></pre>
+<div id="htmlwidget-fb6ae23854ae5b659f3d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fb6ae23854ae5b659f3d">{"x":{"filter":"none","vertical":false,"class":"display","data":[["Northwest","Southwest","Central","Northeast","South"],[56349,39281,77743,89832,89891],[32345,43445,65664,56784,45333],[25365,45444,56789,97888,63778],[32456,45367,45555,69700,24536],[50714.1,35352.9,69968.7,80848.8,80901.9],[22641.5,30411.5,45964.8,39748.8,31733.1],[21560.25,38627.4,48270.65,83204.8,54211.3],[30833.2,43098.65,43277.25,66215,23309.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th rowspan=\"2\">Region<\/th>\n      <th colspan=\"4\">2019<\/th>\n      <th colspan=\"4\">2020<\/th>\n    <\/tr>\n    <tr>\n      <th>Q1<\/th>\n      <th>Q2<\/th>\n      <th>Q3<\/th>\n      <th>Q4<\/th>\n      <th>Q1<\/th>\n      <th>Q2<\/th>\n      <th>Q3<\/th>\n      <th>Q4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":10,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":7,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":8,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.columnDefs.6.render","options.columnDefs.7.render"],"jsHooks":[]}</script>
+<p>That looks a little bit better, but we can really make it pop by adding some CSS into the mix.</p>
+</div>
+<div id="additional-formatting-with-css" class="section level2">
+<h2>Additional Formatting with CSS</h2>
+<p>There are a couple of different ways to add custom CSS to your datatable. The first is in-line, and is fairly straightforward, using <code>{DT}</code>-compatible pre-made functions. Let’s consider the table we just created in the previous example. Yes, the custom container looks cool, but it is confusing to look at. I’m not sure where 2019 ends and 2020 begins. We can fix this issue by adding some vertical lines. While we’re at it, let’s change some of the font sizes too!</p>
+<pre class="r"><code>sketch &lt;- htmltools::withTags(table(
+  class = &#39;display&#39;,
+  thead(
+    tr(
+      th(rowspan = 2, &#39;Region&#39;, style = &quot;border-right: 1px solid black; font-size: 20pt;&quot;),
+      th(colspan = 4, &#39;2019&#39;, style = &quot;border-right: 1px solid black; font-size: 24pt;&quot;),
+      th(colspan = 4, &#39;2020&#39;, style = &quot;border-right: 1px solid black; font-size:24pt;&quot;)
+    ),
+    tr(
+      th(&quot;Q1&quot;),
+      th(&quot;Q2&quot;),
+      th(&quot;Q3&quot;),
+      th(&quot;Q4&quot;, style = &quot;border-right: 1px solid black&quot;),
+      th(&quot;Q1&quot;),
+      th(&quot;Q2&quot;),
+      th(&quot;Q3&quot;),
+      th(&quot;Q4&quot;, style = &quot;border-right: 1px solid black&quot;),
+    )
+  )
+))
+
+sales_dat %&gt;%
+  DT::datatable(
+    rownames = FALSE,
+    container = sketch,
+    options = list(
+      dom = &quot;t&quot;,
+      pageLength = 10
+    )
+  ) %&gt;%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = &quot;$&quot;
+  ) %&gt;%
+  DT::formatStyle(
+    columns = c(&quot;region&quot;, &quot;sales_2019_q4&quot;, &quot;sales_2020_q4&quot;),
+    `border-right` = &quot;1px solid black&quot;
+  )</code></pre>
+<div id="htmlwidget-50578d1e0bb99de4b09f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-50578d1e0bb99de4b09f">{"x":{"filter":"none","vertical":false,"class":"display","data":[["Northwest","Southwest","Central","Northeast","South"],[56349,39281,77743,89832,89891],[32345,43445,65664,56784,45333],[25365,45444,56789,97888,63778],[32456,45367,45555,69700,24536],[50714.1,35352.9,69968.7,80848.8,80901.9],[22641.5,30411.5,45964.8,39748.8,31733.1],[21560.25,38627.4,48270.65,83204.8,54211.3],[30833.2,43098.65,43277.25,66215,23309.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th rowspan=\"2\" style=\"border-right: 1px solid black; font-size: 20pt;\">Region<\/th>\n      <th colspan=\"4\" style=\"border-right: 1px solid black; font-size: 24pt;\">2019<\/th>\n      <th colspan=\"4\" style=\"border-right: 1px solid black; font-size:24pt;\">2020<\/th>\n    <\/tr>\n    <tr>\n      <th>Q1<\/th>\n      <th>Q2<\/th>\n      <th>Q3<\/th>\n      <th style=\"border-right: 1px solid black\">Q4<\/th>\n      <th>Q1<\/th>\n      <th>Q2<\/th>\n      <th>Q3<\/th>\n      <th style=\"border-right: 1px solid black\">Q4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":10,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":7,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":8,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'border-right':'1px solid black'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'border-right':'1px solid black'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'border-right':'1px solid black'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.columnDefs.6.render","options.columnDefs.7.render","options.rowCallback"],"jsHooks":[]}</script>
+<p>Finally, we will show the second way to edit the style of a datatable, which is by including additional CSS in your project (RMarkdown, shiny app, etc). This can be done in RMarkdown either in the YAML header (look at the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">RMarkdown Cookbook</a>) or by including a CSS chunk, as we will show here. In <code>{shiny}</code>, you can include a separate CSS file in the <code>www</code> directory, or you can add it in <code>tags$style()</code> in the corresponding UI function or object.</p>
+<p>Changing the CSS in this manner does require a working knowledge of CSS, but there are great tutorials online and a quick google search is usually enough to answer any questions, especially if you are an experienced coder.</p>
+<p>Here, we will show how to change the background color of the header and the body as a simple use case. This requires us to give a specific identifier to the table, so that it only changes the style of the table that we want. We will code up the style changes in a new chunk, and the use of <code>!important</code> makes sure that the style in this chunk takes priority over any other styling applied to the table.</p>
+<pre class="css"><code>.new-table-1 &gt; thead {
+  background-color: #6D2231;
+  color: #FFFFFF
+}
+.new-table-1 &gt; tbody &gt; tr {
+  background-color: #FFF8EB !important;
+}</code></pre>
+<style type="text/css">
+.new-table-1 > thead {
+  background-color: #6D2231;
+  color: #FFFFFF
+}
+.new-table-1 > tbody > tr {
+  background-color: #FFF8EB !important;
+}
+</style>
+<p>Here I will omit the creation of the <code>sketch</code> object since it has already been created.</p>
+<pre class="r"><code>sales_dat %&gt;%
+  DT::datatable(
+    rownames = FALSE,
+    container = sketch,
+    options = list(
+      dom = &quot;t&quot;,
+      pageLength = 10
+    ),
+    class = &quot;new-table-1&quot;
+  ) %&gt;%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = &quot;$&quot;
+  ) %&gt;%
+  DT::formatStyle(
+    columns = c(&quot;region&quot;, &quot;sales_2019_q4&quot;, &quot;sales_2020_q4&quot;),
+    `border-right` = &quot;1px solid black&quot;
+  )</code></pre>
+<div id="htmlwidget-067b42c740696965f686" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-067b42c740696965f686">{"x":{"filter":"none","vertical":false,"class":"new-table-1","data":[["Northwest","Southwest","Central","Northeast","South"],[56349,39281,77743,89832,89891],[32345,43445,65664,56784,45333],[25365,45444,56789,97888,63778],[32456,45367,45555,69700,24536],[50714.1,35352.9,69968.7,80848.8,80901.9],[22641.5,30411.5,45964.8,39748.8,31733.1],[21560.25,38627.4,48270.65,83204.8,54211.3],[30833.2,43098.65,43277.25,66215,23309.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th rowspan=\"2\" style=\"border-right: 1px solid black; font-size: 20pt;\">Region<\/th>\n      <th colspan=\"4\" style=\"border-right: 1px solid black; font-size: 24pt;\">2019<\/th>\n      <th colspan=\"4\" style=\"border-right: 1px solid black; font-size:24pt;\">2020<\/th>\n    <\/tr>\n    <tr>\n      <th>Q1<\/th>\n      <th>Q2<\/th>\n      <th>Q3<\/th>\n      <th style=\"border-right: 1px solid black\">Q4<\/th>\n      <th>Q1<\/th>\n      <th>Q2<\/th>\n      <th>Q3<\/th>\n      <th style=\"border-right: 1px solid black\">Q4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":10,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":7,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"targets":8,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \"$\", 2, 3, \",\", \".\", true);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'border-right':'1px solid black'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'border-right':'1px solid black'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'border-right':'1px solid black'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.columnDefs.6.render","options.columnDefs.7.render","options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>The <code>{DT}</code> package for creating awesome HTML datatables in R is quite robust. We didn’t even begin to scrape the surface of everything that is possible here, but I think the skills shown here are the basis for using <code>{DT}</code> and will allow you to customize the table for your needs. Hope you found this useful!</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

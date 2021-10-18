@@ -1,5 +1,5 @@
 ---
-title: "Paper Portfolio"
+title: "<div style='text-align:right; font-size:14pt;'><a href='portfolio.html'>Back to Portfolio Home</a></div>Paper Portfolio"
 output: html_document
 ---
 

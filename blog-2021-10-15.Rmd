@@ -1,0 +1,398 @@
+---
+title: "<div style='text-align:right; font-size:14pt;'><a href='blog.html'>Back to Blog Home</a></div>DT (datatables) in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(dplyr)
+```
+
+One of the most convenient ways to display data is in a table format because, let's face it, people often want to see the exact numbers.
+Granted, tables can't show a large dataset, and some relationships between variables are missed when the data is displayed in table format, but at times it is essential that the data be displayed verbatim.
+Enter `{DT}`, an `R` interface for the `DataTables` library.
+
+`DataTables` is a widely used JavaScript library for creating tables in HTML format.
+These tables can easily be used in R shiny applications, RMarkdown reports, or even blog posts, like this one.
+There is an extensive knowledge base on the [Rstudio Github Page](https://rstudio.github.io/DT/) that answers many common questions and use cases.
+Plus, `{DT}` is so widely used it is rare that there isn't a stack overflow question to the issue you are facing.
+So why am I writing this blog post?
+
+As a dedicated user of `{DT}` over the past couple of years, especially in several different `{shiny}` applications, I have learned a lot about the package.
+I love it, and it is powerful, but there are some tricks to working with it that I couldn't find elsewhere on the web.
+
+This blog post will take you through some of my favorite ways to work with `{DT}`.
+
+## Basic Table Creation and the DOM
+
+In order to motivate this section of the post, we will need some example data.
+I will use the CO2 dataset that comes in the `{datasets}` package.
+```{r}
+data("CO2")
+head(CO2)
+```
+
+Now, we will pipe that into the `datatable()` function from `{DT}` to see the default output.
+```{r}
+CO2 %>%
+  DT::datatable()
+```
+
+There are a few things I change right away, depending on the use case.
+
+- I generally get rid of the row names, I don't like an additional column of integers
+- I rename the columns to make the names "prettier"
+- I remove the paging and instead add a vertical scrollbar
+- I remove the search bar
+
+```{r}
+CO2 %>%
+  DT::datatable(
+    rownames = FALSE, # remove row names
+    colnames = c(
+      "Plant Identifier",
+      "Origin of the Plant",
+      "Treatment",
+      "CO2 Concentration",
+      "Uptake Rates"
+    ), # set the column names to be pretty
+    options = list(
+      dom = "t",
+      scrollY = 250, # Sets the height of the scrolling window, in pixels
+      scroller = TRUE
+    ),
+    extensions = "Scroller" # Allows us to have the vertical scrollbar
+  )
+```
+I think the table we just created is much cleaner than the one above, but you are allowed to disagree.
+
+A couple of notes on what just happened. 
+Setting `dom = "t"` displays only the table, and none of the other fancy stuff.
+Exact details about all possible values that `dom` can take can be found [on the DataTables API reference page](https://datatables.net/reference/option/dom), but I typically just set it to "t" for table.
+Unless I'm getting fancy, which I usually am not.
+
+Another note is that the `options` argument is a list, and some of the options will also take lists, so you may end up with multiple nested lists inside your function.
+This is ugly, I know, but it is necessary for the way the data parsing works when communicating between R and JavaScript.
+
+When doing vertical scrolling, both `scroller = TRUE` and `extensions = "Scroller"` are necessary. Otherwise there will be issues.
+
+One final note.
+I'm not going to go over buttons in this blog post, but often in shiny applications the users want to be able to download the data they see in the data table.
+Be aware that there is a DT extension for a download button that you can specify. However, I find it to be buggy.
+Also, if you datatable is long, `{DT}` only loads the data as the user scrolls, meaning that the downloaded data is not the entire table but just a portion of it.
+Most often, when coding data downloads in shiny applications, I use the `shiny::downloadButton()` and `shiny::downloadHandler()` to take care of it.
+That's saved me a lot of headaches.
+
+## Formatting Functions
+
+Sometimes we want to format a specific column or a specific row.
+Well, actually all the time.
+Rarely have I created a table where I don't need to format something in a particular way.
+For this section, let's consider the Johnson and Johnson quarterly earnings per share from the `{datasets}` package, with some additional variables we create.
+Note that due to this data being in a time-series object we have to do some additional manipulation at the beginning.
+```{r}
+data("JohnsonJohnson")
+JJ <- data.frame(Y=as.matrix(JohnsonJohnson), date=time(JohnsonJohnson)) %>%
+  dplyr::mutate(year = floor(date)) %>%
+  dplyr::group_by(year) %>%
+  dplyr::summarize(yearly_earnings = sum(Y)) %>%
+  dplyr::ungroup() %>%
+  dplyr::mutate(
+    pct_growth = (yearly_earnings / lag(yearly_earnings)) - 1
+  )
+```
+
+Now, we can pipe this data into our "cleaner" data table format from above.
+```{r}
+JJ %>%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      "Year",
+      "Earnings",
+      "Earnings Growth"
+    ),
+    options = list(
+      dom = "t",
+      scrollY = 250,
+      scroller = TRUE
+    ),
+    extensions = "Scroller"
+  )
+```
+However, we quickly see the issue with doing this.
+First, it is unclear what we are displaying in the Earnings column. You will likely assume that it is dollars, but there is no sure way to tell.
+Furthermore, all the decimal places in the Earnings Growth column are just plain ugly.
+
+Luckily, there are some neat functions in `{DT}` to fix that, and they fall under the `DT::format*()` family of functions.
+Two of the ones I use the most are `DT::formatCurrency()` and `DT::formatPercentage()`.
+I will also use `DT::formatRound()` fairly frequently.
+
+Let's see what the table looks like with formatted columns
+```{r}
+JJ %>%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      "Year",
+      "Earnings",
+      "Earnings Growth"
+    ),
+    options = list(
+      dom = "t",
+      scrollY = 250,
+      scroller = TRUE
+    ),
+    extensions = "Scroller"
+  ) %>%
+  DT::formatCurrency(
+    columns = c("yearly_earnings"),
+    digits = 2,
+    currency = "$"
+  ) %>%
+  DT::formatPercentage(
+    columns = "pct_growth",
+    digits = 2
+  )
+```
+Much better! Note here that when you specify the columns, you specify the actual name of the column, not the pretty name you gave it in the `DT::datatable()` function.
+
+But there's still one more formatting trick that I often apply to spice up the table a little bit more.
+I like to color the rows based on the value of one column.
+In this case, let's color the columns based on fixed breaks: under 15%, 15%-20%, and over 20%.
+
+```{r}
+JJ %>%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      "Year",
+      "Earnings",
+      "Earnings Growth"
+    ),
+    options = list(
+      dom = "t",
+      scrollY = 250,
+      scroller = TRUE
+    ),
+    extensions = "Scroller"
+  ) %>%
+  DT::formatCurrency(
+    columns = c("yearly_earnings"),
+    digits = 2,
+    currency = "$"
+  ) %>%
+  DT::formatPercentage(
+    columns = "pct_growth",
+    digits = 2
+  ) %>%
+  DT::formatStyle(
+    columns = "pct_growth", # the column the color is based on
+    target = "row", # We are coloring the entire row here
+    backgroundColor = DT::styleInterval(
+      cuts = c(0.15, 0.20),
+      values = c("#D7FEE1", "#5FFC86", "#04DC3A")
+    )
+  )
+```
+
+And those are just some of the formatting functions that I commonly use when creating a `{DT}` data table!
+
+## Custom Container
+
+In addition to adding formatting options specific to your use case, one thing that really sets a data table apart is a custom header built specifically for your data.
+This takes a little bit of extra effort, and can be tedious at times but the final result is definitely worth it.
+
+To motivate this example, let's work with some (fake) sales data for a company.
+```{r}
+sales_dat <- data.frame(
+  region = c("Northwest", "Southwest", "Central", "Northeast", "South"),
+  sales_2019_q1 = c(56349, 39281, 77743, 89832, 89891),
+  sales_2019_q2 = c(32345, 43445, 65664, 56784, 45333),
+  sales_2019_q3 = c(25365, 45444, 56789, 97888, 63778),
+  sales_2019_q4 = c(32456, 45367, 45555, 69700, 24536),
+  sales_2020_q1 = c(56349, 39281, 77743, 89832, 89891) * 0.9,
+  sales_2020_q2 = c(32345, 43445, 65664, 56784, 45333) * 0.7,
+  sales_2020_q3 = c(25365, 45444, 56789, 97888, 63778) * 0.85,
+  sales_2020_q4 = c(32456, 45367, 45555, 69700, 24536) * 0.95
+)
+sales_dat
+```
+
+A typical display of this might look like the following:
+```{r}
+sales_dat %>%
+  DT::datatable(
+    rownames = FALSE,
+    colnames = c(
+      "Region",
+      "2019 Q1 Sales",
+      "2019 Q2 Sales",
+      "2019 Q3 Sales",
+      "2019 Q4 Sales",
+      "2020 Q1 Sales",
+      "2020 Q2 Sales",
+      "2020 Q3 Sales",
+      "2020 Q4 Sales"
+    ),
+    options = list(
+      dom = "t",
+      pageLength = 10
+    )
+  ) %>%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = "$"
+  )
+```
+Note the `fillContainer = TRUE` argument that makes sure the header scrolls horizontally with the rest of the table.
+
+However, there is a lot of redundancy to the column names, and I think we can make it look cleaner.
+We will do this by creating a custom table container, where we manually created the header.
+The exact location in the github pages site where it explains how to do this is [here](https://rstudio.github.io/DT/#custom-table-container), but essentially it just involves creating an html object that then gets passed into the `DT::datatable()` function.
+Note that when a container is passed, the `colnames` argument is omitted.
+
+```{r}
+sketch <- htmltools::withTags(table(
+  class = 'display',
+  thead(
+    tr(
+      th(rowspan = 2, 'Region'),
+      th(colspan = 4, '2019'),
+      th(colspan = 4, '2020')
+    ),
+    tr(
+      th("Q1"),
+      th("Q2"),
+      th("Q3"),
+      th("Q4"),
+      th("Q1"),
+      th("Q2"),
+      th("Q3"),
+      th("Q4"),
+    )
+  )
+))
+
+sales_dat %>%
+  DT::datatable(
+    rownames = FALSE,
+    container = sketch,
+    options = list(
+      dom = "t",
+      pageLength = 10
+    )
+  ) %>%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = "$"
+  )
+```
+
+That looks a little bit better, but we can really make it pop by adding some CSS into the mix.
+
+## Additional Formatting with CSS
+
+There are a couple of different ways to add custom CSS to your datatable.
+The first is in-line, and is fairly straightforward, using `{DT}`-compatible pre-made functions.
+Let's consider the table we just created in the previous example.
+Yes, the custom container looks cool, but it is confusing to look at. I'm not sure where 2019 ends and 2020 begins.
+We can fix this issue by adding some vertical lines.
+While we're at it, let's change some of the font sizes too!
+
+```{r}
+sketch <- htmltools::withTags(table(
+  class = 'display',
+  thead(
+    tr(
+      th(rowspan = 2, 'Region', style = "border-right: 1px solid black; font-size: 20pt;"),
+      th(colspan = 4, '2019', style = "border-right: 1px solid black; font-size: 24pt;"),
+      th(colspan = 4, '2020', style = "border-right: 1px solid black; font-size:24pt;")
+    ),
+    tr(
+      th("Q1"),
+      th("Q2"),
+      th("Q3"),
+      th("Q4", style = "border-right: 1px solid black"),
+      th("Q1"),
+      th("Q2"),
+      th("Q3"),
+      th("Q4", style = "border-right: 1px solid black"),
+    )
+  )
+))
+
+sales_dat %>%
+  DT::datatable(
+    rownames = FALSE,
+    container = sketch,
+    options = list(
+      dom = "t",
+      pageLength = 10
+    )
+  ) %>%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = "$"
+  ) %>%
+  DT::formatStyle(
+    columns = c("region", "sales_2019_q4", "sales_2020_q4"),
+    `border-right` = "1px solid black"
+  )
+```
+
+Finally, we will show the second way to edit the style of a datatable, which is by including additional CSS in your project (RMarkdown, shiny app, etc).
+This can be done in RMarkdown either in the YAML header (look at the [RMarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)) or by including a CSS chunk, as we will show here.
+In `{shiny}`, you can include a separate CSS file in the `www` directory, or you can add it in `tags$style()` in the corresponding UI function or object.
+
+Changing the CSS in this manner does require a working knowledge of CSS, but there are great tutorials online and a quick google search is usually enough to answer any questions, especially if you are an experienced coder.
+
+Here, we will show how to change the background color of the header and the body as a simple use case.
+This requires us to give a specific identifier to the table, so that it only changes the style of the table that we want.
+We will code up the style changes in a new chunk, and the use of `!important` makes sure that the style in this chunk takes priority over any other styling applied to the table.
+
+```{css}
+.new-table-1 > thead {
+  background-color: #6D2231;
+  color: #FFFFFF
+}
+.new-table-1 > tbody > tr {
+  background-color: #FFF8EB !important;
+}
+```
+
+
+Here I will omit the creation of the `sketch` object since it has already been created.
+
+```{r}
+sales_dat %>%
+  DT::datatable(
+    rownames = FALSE,
+    container = sketch,
+    options = list(
+      dom = "t",
+      pageLength = 10
+    ),
+    class = "new-table-1"
+  ) %>%
+  DT::formatCurrency(
+    columns = colnames(select(sales_dat, -region)),
+    digits = 2,
+    currency = "$"
+  ) %>%
+  DT::formatStyle(
+    columns = c("region", "sales_2019_q4", "sales_2020_q4"),
+    `border-right` = "1px solid black"
+  )
+```
+
+
+## Conclusion
+
+The `{DT}` package for creating awesome HTML datatables in R is quite robust.
+We didn't even begin to scrape the surface of everything that is possible here, but I think the skills shown here are the basis for using `{DT}` and will allow you to customize the table for your needs.
+Hope you found this useful!
+
