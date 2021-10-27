@@ -1,0 +1,164 @@
+---
+title: "<div style='text-align:right; font-size:14pt;'><a href='blog.html'>Back to Blog Home</a></div>Analysis of County Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(rvest)
+library(dplyr)
+library(magrittr)
+library(readr)
+library(stringr)
+library(ggplot2)
+```
+
+Recently in an advanced methods course my professor was discussing data on some of the most populous counties in the US.
+She then asked how many counties we thought there were in California (where I am located, and the most populous US state).
+My initial guess was somewhere between 20 and 30, but a quick google search showed us that there are actually **58** counties in California.
+This seemed like a lot, but when I researched it further, I found that many other states have much more than California, despite being less populous.
+In this post, we will webscrape some data from Wikipedia and perform a brief analysis on it in R.
+
+## Getting the data
+
+I found a great table on the [Wikipedia page located here](https://en.wikipedia.org/wiki/County_(United_States)), under the "Statistics" section.
+We will use `{rvest}` and `{xml2}` to pull the data into R.
+
+First, let's get our libraries:
+```{r, eval=FALSE}
+library(rvest)
+library(dplyr)
+library(magrittr)
+library(readr)
+library(stringr)
+library(ggplot2)
+```
+
+And then we can read in the data.
+```{r}
+url <- "https://en.wikipedia.org/wiki/County_(United_States)"
+
+county_raw <- read_html(url) %>%
+  html_node("table.wikitable.sortable") %>%
+  html_table()
+head(county_raw)
+```
+
+Now that we have the table in R, we need to clean the data.
+From the head, we can see that the original column titles got split into the table header and the first row of the data.
+To fix this, we will remove the first row and then rename all columns.
+Furthermore, we will convert columns to the correct type and make all area measurements in square miles.
+
+```{r}
+county_clean <- county_raw %>%
+  set_colnames(
+    c(
+      "state",
+      "population_2019",
+      "land_area",
+      "counties",
+      "equivalents",
+      "total_subdivisions",
+      "avg_county_population",
+      "avg_county_size"
+    )
+  ) %>%
+  slice(-1) %>%
+  mutate(
+    population_2019 = parse_number(population_2019),
+    counties = parse_number(counties),
+    equivalents = parse_number(equivalents),
+    total_subdivisions = parse_number(total_subdivisions),
+    avg_county_population = parse_number(avg_county_population),
+    land_area = str_extract(land_area, "^.* ") %>% parse_number(),
+    avg_county_size = str_extract(avg_county_size, "^.* ") %>% parse_number()
+  ) %>%
+  suppressWarnings() %>% # known NA's caused by - in numeric columns
+  slice(1:51) # just get the 50 states and DC, no territories or totals
+  
+head(county_clean)
+```
+
+That looks much better and way more useable. Hooray!
+
+## Exploring the data
+
+We will explore two main relationships here, the relationship between state population and the number of counties, and the relationship between state land area and the number of counties.
+Plots of these two relationships are shown below.
+
+```{r}
+county_clean %>%
+  ggplot() +
+  aes(x = population_2019, y = total_subdivisions) +
+  geom_point() +
+  xlab("State Population") +
+  ylab("# of Counties (or Equivalents)") +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000000, " Milliion")
+    }
+  ) +
+  theme_bw()
+```
+
+```{r}
+county_clean %>%
+  ggplot() +
+  aes(x = land_area, y = total_subdivisions) +
+  geom_point() +
+  xlab("State Land Area (Thousands of Square Miles)") +
+  ylab("# of Counties (or Equivalents)") +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000)
+    }
+  ) +
+  theme_bw()
+```
+
+We can also look at the correlation between these variables:
+```{r}
+cor(county_clean$total_subdivisions, county_clean$population_2019)
+cor(county_clean$total_subdivisions, county_clean$land_area)
+```
+
+And maybe even add a regression line to the above plots, although it should be noted that the regression assumptions are definitely not met for either of these relationships.
+Further analysis would be needed to create a valid model of the relationship.
+
+```{r}
+county_clean %>%
+  ggplot() +
+  aes(x = population_2019, y = total_subdivisions) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  xlab("State Population") +
+  ylab("# of Counties (or Equivalents)") +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000000, " Milliion")
+    }
+  ) +
+  theme_bw()
+summary(lm(total_subdivisions ~ population_2019, data = county_clean))
+
+county_clean %>%
+  ggplot() +
+  aes(x = land_area, y = total_subdivisions) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  xlab("State Land Area (Thousands of Square Miles)") +
+  ylab("# of Counties (or Equivalents)") +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000)
+    }
+  ) +
+  theme_bw()
+summary(lm(total_subdivisions ~ land_area, data = county_clean))
+```
+
+## Conclusion
+
+There seems to be a lot that could be done with this data, but here we just showed how to get the data, and performed a brief analysis on it.
+Hope you found it helpful and interesting!

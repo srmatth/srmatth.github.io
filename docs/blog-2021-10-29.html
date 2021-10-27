@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>blog-2021-10-29.knit</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="resources/favicon.png"/>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="resources/new.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Spencer Matthews</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="portfolio.html">Portfolio</a>
+</li>
+<li>
+  <a href="github_projects.html">Github Projects</a>
+</li>
+<li>
+  <a href="blog.html">Blog</a>
+</li>
+<li>
+  <a href="resources/resume_sep_2021.pdf">Resume</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:spencer.matthews@uci.edu">
+    <span class="fa fa-envelope"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/srmatth">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://linkedin.com/in/spencer-reed-matthews/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><div style="text-align:right; font-size:14pt;">
+<a href='blog.html'>Back to Blog Home</a>
+</div>
+Analysis of County Data</h1>
+
+</div>
+
+
+<p>Recently in an advanced methods course my professor was discussing data on some of the most populous counties in the US. She then asked how many counties we thought there were in California (where I am located, and the most populous US state). My initial guess was somewhere between 20 and 30, but a quick google search showed us that there are actually <strong>58</strong> counties in California. This seemed like a lot, but when I researched it further, I found that many other states have much more than California, despite being less populous. In this post, we will webscrape some data from Wikipedia and perform a brief analysis on it in R.</p>
+<div id="getting-the-data" class="section level2">
+<h2>Getting the data</h2>
+<p>I found a great table on the <a href="https://en.wikipedia.org/wiki/County_(United_States)">Wikipedia page located here</a>, under the “Statistics” section. We will use <code>{rvest}</code> and <code>{xml2}</code> to pull the data into R.</p>
+<p>First, let’s get our libraries:</p>
+<pre class="r"><code>library(rvest)
+library(dplyr)
+library(magrittr)
+library(readr)
+library(stringr)
+library(ggplot2)</code></pre>
+<p>And then we can read in the data.</p>
+<pre class="r"><code>url &lt;- &quot;https://en.wikipedia.org/wiki/County_(United_States)&quot;
+
+county_raw &lt;- read_html(url) %&gt;%
+  html_node(&quot;table.wikitable.sortable&quot;) %&gt;%
+  html_table()
+head(county_raw)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   `State, federal d… Total   Total  `Subdivisions[7… `Subdivisions[7…
+##   &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;           
+## 1 State, federal di… 2019 p… Land … Counties         Equivalents     
+## 2 Alabama            4,903,… 50,64… 67               —               
+## 3 Alaska[g]          731,545 570,6… —                30              
+## 4 Arizona            7,278,… 113,5… 15               —               
+## 5 Arkansas           3,017,… 52,03… 75               —               
+## 6 California         39,512… 155,7… 58               —               
+## # … with 3 more variables: Subdivisions[7] &lt;chr&gt;, Average &lt;chr&gt;,
+## #   Average.1 &lt;chr&gt;</code></pre>
+<p>Now that we have the table in R, we need to clean the data. From the head, we can see that the original column titles got split into the table header and the first row of the data. To fix this, we will remove the first row and then rename all columns. Furthermore, we will convert columns to the correct type and make all area measurements in square miles.</p>
+<pre class="r"><code>county_clean &lt;- county_raw %&gt;%
+  set_colnames(
+    c(
+      &quot;state&quot;,
+      &quot;population_2019&quot;,
+      &quot;land_area&quot;,
+      &quot;counties&quot;,
+      &quot;equivalents&quot;,
+      &quot;total_subdivisions&quot;,
+      &quot;avg_county_population&quot;,
+      &quot;avg_county_size&quot;
+    )
+  ) %&gt;%
+  slice(-1) %&gt;%
+  mutate(
+    population_2019 = parse_number(population_2019),
+    counties = parse_number(counties),
+    equivalents = parse_number(equivalents),
+    total_subdivisions = parse_number(total_subdivisions),
+    avg_county_population = parse_number(avg_county_population),
+    land_area = str_extract(land_area, &quot;^.* &quot;) %&gt;% parse_number(),
+    avg_county_size = str_extract(avg_county_size, &quot;^.* &quot;) %&gt;% parse_number()
+  ) %&gt;%
+  suppressWarnings() %&gt;% # known NA&#39;s caused by - in numeric columns
+  slice(1:51) # just get the 50 states and DC, no territories or totals
+  
+head(county_clean)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   state      population_2019 land_area counties equivalents
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;
+## 1 Alabama            4903185     50645       67          NA
+## 2 Alaska[g]           731545    570641       NA          30
+## 3 Arizona            7278717    113594       15          NA
+## 4 Arkansas           3017825     52035       75          NA
+## 5 California        39512223    155779       58          NA
+## 6 Colorado           5758736    103642       64          NA
+## # … with 3 more variables: total_subdivisions &lt;dbl&gt;,
+## #   avg_county_population &lt;dbl&gt;, avg_county_size &lt;dbl&gt;</code></pre>
+<p>That looks much better and way more useable. Hooray!</p>
+</div>
+<div id="exploring-the-data" class="section level2">
+<h2>Exploring the data</h2>
+<p>We will explore two main relationships here, the relationship between state population and the number of counties, and the relationship between state land area and the number of counties. Plots of these two relationships are shown below.</p>
+<pre class="r"><code>county_clean %&gt;%
+  ggplot() +
+  aes(x = population_2019, y = total_subdivisions) +
+  geom_point() +
+  xlab(&quot;State Population&quot;) +
+  ylab(&quot;# of Counties (or Equivalents)&quot;) +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000000, &quot; Milliion&quot;)
+    }
+  ) +
+  theme_bw()</code></pre>
+<p><img src="blog-2021-10-29_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>county_clean %&gt;%
+  ggplot() +
+  aes(x = land_area, y = total_subdivisions) +
+  geom_point() +
+  xlab(&quot;State Land Area (Thousands of Square Miles)&quot;) +
+  ylab(&quot;# of Counties (or Equivalents)&quot;) +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000)
+    }
+  ) +
+  theme_bw()</code></pre>
+<p><img src="blog-2021-10-29_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>We can also look at the correlation between these variables:</p>
+<pre class="r"><code>cor(county_clean$total_subdivisions, county_clean$population_2019)</code></pre>
+<pre><code>## [1] 0.4554039</code></pre>
+<pre class="r"><code>cor(county_clean$total_subdivisions, county_clean$land_area)</code></pre>
+<pre><code>## [1] 0.1901505</code></pre>
+<p>And maybe even add a regression line to the above plots, although it should be noted that the regression assumptions are definitely not met for either of these relationships. Further analysis would be needed to create a valid model of the relationship.</p>
+<pre class="r"><code>county_clean %&gt;%
+  ggplot() +
+  aes(x = population_2019, y = total_subdivisions) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;) +
+  xlab(&quot;State Population&quot;) +
+  ylab(&quot;# of Counties (or Equivalents)&quot;) +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000000, &quot; Milliion&quot;)
+    }
+  ) +
+  theme_bw()</code></pre>
+<p><img src="blog-2021-10-29_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>summary(lm(total_subdivisions ~ population_2019, data = county_clean))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = total_subdivisions ~ population_2019, data = county_clean)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -99.290 -35.706   4.335  24.959 127.126 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     4.301e+01  7.855e+00   5.476 1.49e-06 ***
+## population_2019 2.892e-06  8.078e-07   3.581 0.000785 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 42.04 on 49 degrees of freedom
+## Multiple R-squared:  0.2074, Adjusted R-squared:  0.1912 
+## F-statistic: 12.82 on 1 and 49 DF,  p-value: 0.0007853</code></pre>
+<pre class="r"><code>county_clean %&gt;%
+  ggplot() +
+  aes(x = land_area, y = total_subdivisions) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;) +
+  xlab(&quot;State Land Area (Thousands of Square Miles)&quot;) +
+  ylab(&quot;# of Counties (or Equivalents)&quot;) +
+  scale_x_continuous(
+    labels = function(x) {
+      str_c(x / 1000)
+    }
+  ) +
+  theme_bw()</code></pre>
+<p><img src="blog-2021-10-29_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre class="r"><code>summary(lm(total_subdivisions ~ land_area, data = county_clean))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = total_subdivisions ~ land_area, data = county_clean)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -83.740 -37.717  -1.202  26.809 172.419 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 5.443e+01  8.386e+00   6.490 4.09e-08 ***
+## land_area   1.039e-04  7.666e-05   1.356    0.181    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 46.36 on 49 degrees of freedom
+## Multiple R-squared:  0.03616,    Adjusted R-squared:  0.01649 
+## F-statistic: 1.838 on 1 and 49 DF,  p-value: 0.1814</code></pre>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>There seems to be a lot that could be done with this data, but here we just showed how to get the data, and performed a brief analysis on it. Hope you found it helpful and interesting!</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
