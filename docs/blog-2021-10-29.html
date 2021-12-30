@@ -319,14 +319,14 @@ county_raw &lt;- read_html(url) %&gt;%
   html_table()
 head(county_raw)</code></pre>
 <pre><code>## # A tibble: 6 x 8
-##   `State, federal d… Total   Total  `Subdivisions[7… `Subdivisions[7…
-##   &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;           
-## 1 State, federal di… 2019 p… Land … Counties         Equivalents     
-## 2 Alabama            4,903,… 50,64… 67               —               
-## 3 Alaska[g]          731,545 570,6… —                30              
-## 4 Arizona            7,278,… 113,5… 15               —               
-## 5 Arkansas           3,017,… 52,03… 75               —               
-## 6 California         39,512… 155,7… 58               —               
+##   `State, federal dis… Total   Total    `Subdivisions[7… `Subdivisions[7…
+##   &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;           
+## 1 State, federal dist… 2019 p… Land ar… Counties         Equivalents     
+## 2 Alabama              4,903,… 50,645 … 67               —               
+## 3 Alaska[g]            731,545 570,641… —                30              
+## 4 Arizona              7,278,… 113,594… 15               —               
+## 5 Arkansas             3,017,… 52,035 … 75               —               
+## 6 California           39,512… 155,779… 58               —               
 ## # … with 3 more variables: Subdivisions[7] &lt;chr&gt;, Average &lt;chr&gt;,
 ## #   Average.1 &lt;chr&gt;</code></pre>
 <p>Now that we have the table in R, we need to clean the data. From the head, we can see that the original column titles got split into the table header and the first row of the data. To fix this, we will remove the first row and then rename all columns. Furthermore, we will convert columns to the correct type and make all area measurements in square miles.</p>
@@ -358,16 +358,16 @@ head(county_raw)</code></pre>
   
 head(county_clean)</code></pre>
 <pre><code>## # A tibble: 6 x 8
-##   state      population_2019 land_area counties equivalents
-##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;
-## 1 Alabama            4903185     50645       67          NA
-## 2 Alaska[g]           731545    570641       NA          30
-## 3 Arizona            7278717    113594       15          NA
-## 4 Arkansas           3017825     52035       75          NA
-## 5 California        39512223    155779       58          NA
-## 6 Colorado           5758736    103642       64          NA
-## # … with 3 more variables: total_subdivisions &lt;dbl&gt;,
-## #   avg_county_population &lt;dbl&gt;, avg_county_size &lt;dbl&gt;</code></pre>
+##   state   population_2019 land_area counties equivalents total_subdivisi…
+##   &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;            &lt;dbl&gt;
+## 1 Alabama         4903185     50645       67          NA               67
+## 2 Alaska…          731545    570641       NA          30               30
+## 3 Arizona         7278717    113594       15          NA               15
+## 4 Arkans…         3017825     52035       75          NA               75
+## 5 Califo…        39512223    155779       58          NA               58
+## 6 Colora…         5758736    103642       64          NA               64
+## # … with 2 more variables: avg_county_population &lt;dbl&gt;,
+## #   avg_county_size &lt;dbl&gt;</code></pre>
 <p>That looks much better and way more useable. Hooray!</p>
 </div>
 <div id="exploring-the-data" class="section level2">
@@ -418,6 +418,7 @@ head(county_clean)</code></pre>
     }
   ) +
   theme_bw()</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="blog-2021-10-29_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code>summary(lm(total_subdivisions ~ population_2019, data = county_clean))</code></pre>
 <pre><code>## 
@@ -451,6 +452,7 @@ head(county_clean)</code></pre>
     }
   ) +
   theme_bw()</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="blog-2021-10-29_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 <pre class="r"><code>summary(lm(total_subdivisions ~ land_area, data = county_clean))</code></pre>
 <pre><code>## 

@@ -10,7 +10,7 @@ Following are papers and presentations that came from original research.
 
 ## <a href="research-mshap.html">mSHAP</a>
 
-**Submitted**
+**Published in *Risks*, January 2022**
 
 *Joint work with Brian Hartman*
 

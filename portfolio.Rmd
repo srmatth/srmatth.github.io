@@ -39,7 +39,7 @@ fluidRow(
 
 ---
 
-## <a href="portfolio-papers.html">Statistical Papers</a>
+## <a href="portfolio-papers.html">Statistical Papers / Writing</a>
 
 ```{r}
 fluidRow(
@@ -48,6 +48,20 @@ fluidRow(
     tags$a(
       tags$img(src = "resources/portfolio/mshap_thumbnail.PNG", width = "100%"),
       href = "portfolio-papers.html#mshap"
+    )
+  ),
+  column(
+    width = 2,
+    tags$a(
+      tags$img(src = "resources/portfolio/stat_295_final_proj_ss.PNG", width = "100%"),
+      href = "portfolio-papers.html#stat_295"
+    )
+  ),
+  column(
+    width = 2,
+    tags$a(
+      tags$img(src = "resources/portfolio/ndseg_proposal_ss.PNG", width = "100%"),
+      href = "portfolio-papers.html#ndseg_prop"
     )
   )
 )
