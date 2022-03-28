@@ -18,7 +18,49 @@ A list of papers/writing I have contributed to, ordered by descending date.
 
 <hr style="border-top: 1px solid black">
 
-## mSHAP: SHAP Values for Two-Part Models {#mshap}
+## Spatial Analysis of Chlorophyll Concentration (March 2022) {#stat_295_spatial}
+
+<div class='col_12' style='text-align:center'>
+  <a href="resources/spatial_final.pdf">
+    <i class="fas fa-file-download" style="font-size:30pt"></i>
+    <br>
+    Download a PDF of the Final Project
+  </a>
+</div>
+
+## Abstract
+
+This final project aimed to apply the methods learned for spatial data analysis to a dataset of our choosing.
+I analyzed chlorophyll concentration (a proxy for phytoplankton presence) in the Indian Ocean in the Summer of 2021.
+Various covariates were obtained including depth, coral presence, temperature, and salinity.
+Residual spatial correlation remained.
+Random spatial effects were estimated using Bayesian procedures, and predictions were made for different time periods to test the effectiveness of our model.
+
+<hr style="border-top: 1px solid black">
+
+## Data Analysis: ESRD Access Type (March 2022) {#stat_211}
+
+<div class='col_12' style='text-align:center'>
+  <a href="resources/211_final.pdf">
+    <i class="fas fa-file-download" style="font-size:30pt"></i>
+    <br>
+    Download a PDF of the Final Project
+  </a>
+</div>
+
+## Abstract
+
+Data on over 1,500 dialysis patients in the United States were analyzed with the outcome of interest being the revision rate on dialysis accesses placed in the patient.
+Models were constructed to determine the effect of access type of revision rate.
+Both venous transposition arteriovenous fistula accesses and prosthetic graft accesses had higher revision rates than standard arteriovenous fistula accesses (68\%, CI = (22\%, 132\%) and 93\%, CI = (58\%, 135\%), respectively).
+No difference in revision rate was found between arteriovenous fistula accesses and prosthetic graft accesses.
+The difference in revision rate by access type is different across diabetic status, but not by age.
+Models were also constructed to accurately predict revision rates in a patient receiving their first access, and predictions presented.
+
+<hr style="border-top: 1px solid black">
+
+
+## mSHAP: SHAP Values for Two-Part Models (January 2022) {#mshap}
 
 <div class='col_6' style='text-align:center'>
   <a href="https://doi.org/10.3390/risks10010003">
@@ -42,7 +84,7 @@ Two-part models are important to and used throughout insurance and actuarial sci
 
 <hr style="border-top: 1px solid black">
 
-## Infectious Disease Final Project (Fall 2021) {#stat_295}
+## Infectious Disease Final Project (December 2021) {#stat_295}
 
 <div class='col_12' style='text-align:center'>
   <a href="resources/Infectious_Disease_Final_Project.pdf">
@@ -60,7 +102,7 @@ We additionally apply the method used in the paper to new data on COVID-19 hospi
 
 <hr style="border-top: 1px solid black">
 
-## NDSEG Proposal 2021 {#ndseg_prop}
+## NDSEG Proposal 2021 (November 2021) {#ndseg_prop}
 
 <div class='col_12' style='text-align:center'>
   <a href="resources/NDSEG_2021_Proposal.pdf">

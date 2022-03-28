@@ -46,6 +46,20 @@ fluidRow(
   column(
     width = 2,
     tags$a(
+      tags$img(src = "resources/portfolio/spatial_final_ss.PNG", width = "100%"),
+      href = "portfolio-papers.html#stat_295_spatial"
+    )
+  ),
+  column(
+    width = 2,
+    tags$a(
+      tags$img(src = "resources/portfolio/211_final_ss.PNG", width = "100%"),
+      href = "portfolio-papers.html#stat_211"
+    )
+  ),
+  column(
+    width = 2,
+    tags$a(
       tags$img(src = "resources/portfolio/mshap_thumbnail.PNG", width = "100%"),
       href = "portfolio-papers.html#mshap"
     )
