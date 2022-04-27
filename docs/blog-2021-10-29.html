@@ -319,15 +319,17 @@ county_raw &lt;- read_html(url) %&gt;%
   html_table()
 head(county_raw)</code></pre>
 <pre><code>## # A tibble: 6 x 8
-##   `State, federal d… Total Total  `Subdivisions[7… `Subdivisions[7…
-##   &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;           
-## 1 State, federal di… 2019… Land … Counties         Equivalents     
-## 2 Alabama            4,90… 50,64… 67               —               
-## 3 Alaska[g]          731,… 570,6… —                30              
-## 4 Arizona            7,27… 113,5… 15               —               
-## 5 Arkansas           3,01… 52,03… 75               —               
-## 6 California         39,5… 155,7… 58               —               
-## # … with 3 more variables: Subdivisions[7] &lt;chr&gt;, Average &lt;chr&gt;,
+##   `State, federal … Total  Total `Subdivisions[7…
+##   &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;           
+## 1 State, federal d… 2019 … Land… Counties        
+## 2 Alabama           4,903… 50,6… 67              
+## 3 Alaska[g]         731,5… 570,… —               
+## 4 Arizona           7,278… 113,… 15              
+## 5 Arkansas          3,017… 52,0… 75              
+## 6 California        39,51… 155,… 58              
+## # … with 4 more variables:
+## #   Subdivisions[7] &lt;chr&gt;,
+## #   Subdivisions[7].1 &lt;chr&gt;, Average &lt;chr&gt;,
 ## #   Average.1 &lt;chr&gt;</code></pre>
 <p>Now that we have the table in R, we need to clean the data. From the head, we can see that the original column titles got split into the table header and the first row of the data. To fix this, we will remove the first row and then rename all columns. Furthermore, we will convert columns to the correct type and make all area measurements in square miles.</p>
 <pre class="r"><code>county_clean &lt;- county_raw %&gt;%
@@ -358,16 +360,18 @@ head(county_raw)</code></pre>
   
 head(county_clean)</code></pre>
 <pre><code>## # A tibble: 6 x 8
-##   state      population_2019 land_area counties equivalents
-##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;
-## 1 Alabama            4903185     50645       67          NA
-## 2 Alaska[g]           731545    570641       NA          30
-## 3 Arizona            7278717    113594       15          NA
-## 4 Arkansas           3017825     52035       75          NA
-## 5 California        39512223    155779       58          NA
-## 6 Colorado           5758736    103642       64          NA
-## # … with 3 more variables: total_subdivisions &lt;dbl&gt;,
-## #   avg_county_population &lt;dbl&gt;, avg_county_size &lt;dbl&gt;</code></pre>
+##   state      population_2019 land_area counties
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Alabama            4903185     50645       67
+## 2 Alaska[g]           731545    570641       NA
+## 3 Arizona            7278717    113594       15
+## 4 Arkansas           3017825     52035       75
+## 5 California        39512223    155779       58
+## 6 Colorado           5758736    103642       64
+## # … with 4 more variables: equivalents &lt;dbl&gt;,
+## #   total_subdivisions &lt;dbl&gt;,
+## #   avg_county_population &lt;dbl&gt;,
+## #   avg_county_size &lt;dbl&gt;</code></pre>
 <p>That looks much better and way more useable. Hooray!</p>
 </div>
 <div id="exploring-the-data" class="section level2">
@@ -430,11 +434,15 @@ head(county_clean)</code></pre>
 ## -99.290 -35.706   4.335  24.959 127.126 
 ## 
 ## Coefficients:
-##                  Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)     4.301e+01  7.855e+00   5.476 1.49e-06 ***
-## population_2019 2.892e-06  8.078e-07   3.581 0.000785 ***
+##                  Estimate Std. Error t value
+## (Intercept)     4.301e+01  7.855e+00   5.476
+## population_2019 2.892e-06  8.078e-07   3.581
+##                 Pr(&gt;|t|)    
+## (Intercept)     1.49e-06 ***
+## population_2019 0.000785 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 42.04 on 49 degrees of freedom
 ## Multiple R-squared:  0.2074, Adjusted R-squared:  0.1912 
@@ -464,11 +472,15 @@ head(county_clean)</code></pre>
 ## -83.740 -37.717  -1.202  26.809 172.419 
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 5.443e+01  8.386e+00   6.490 4.09e-08 ***
-## land_area   1.039e-04  7.666e-05   1.356    0.181    
+##              Estimate Std. Error t value
+## (Intercept) 5.443e+01  8.386e+00   6.490
+## land_area   1.039e-04  7.666e-05   1.356
+##             Pr(&gt;|t|)    
+## (Intercept) 4.09e-08 ***
+## land_area      0.181    
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 46.36 on 49 degrees of freedom
 ## Multiple R-squared:  0.03616,    Adjusted R-squared:  0.01649 

@@ -46,6 +46,13 @@ fluidRow(
   column(
     width = 2,
     tags$a(
+      tags$img(src = "resources/portfolio/cas.PNG", width = "100%"),
+      href = "portfolio-papers.html#ml_in_ratemaking"
+    )
+  ),
+  column(
+    width = 2,
+    tags$a(
       tags$img(src = "resources/portfolio/spatial_final_ss.PNG", width = "100%"),
       href = "portfolio-papers.html#stat_295_spatial"
     )
@@ -69,13 +76,6 @@ fluidRow(
     tags$a(
       tags$img(src = "resources/portfolio/stat_295_final_proj_ss.PNG", width = "100%"),
       href = "portfolio-papers.html#stat_295"
-    )
-  ),
-  column(
-    width = 2,
-    tags$a(
-      tags$img(src = "resources/portfolio/ndseg_proposal_ss.PNG", width = "100%"),
-      href = "portfolio-papers.html#ndseg_prop"
     )
   )
 )

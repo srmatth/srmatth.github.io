@@ -20,9 +20,9 @@ mSHAP is a methodology for explaining the predictions of these two-part models t
 
 <hr style="border-top: 1px solid black">
 
-## <a href="research-cas.html">CAS Data</a>
+## <a href="research-cas.html">Machine Learning in Ratemaking, an Application in Commercial Auto Insurance</a>
 
-**In Progress**
+**Published in *Risks*, April 2022**
 
 *Joint work with Brian Hartman*
 

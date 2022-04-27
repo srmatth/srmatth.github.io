@@ -1,10 +1,41 @@
 ---
-title: "<div style='text-align:right; font-size:14pt;'><a href='research.html'>Back to Research Page</a></div>An Exploration of the CAS Data"
+title: "<div style='text-align:right; font-size:14pt;'><a href='research.html'>Back to Research Page</a></div>Machine Learning in Ratemaking, an Application in Commercial Auto Insurance"
 output: html_document
 ---
 
+
 *Joint work with Brian Hartman*
 
-This paper is currently being written, and is not yet available for viewing. Please check back in the future for further updates.
-Thank you!
+<div class='col_4' style='text-align:center'>
+  <a href="https://doi.org/10.3390/risks10040080">
+    <i class="fas fa-external-link-alt" style="font-size:30pt"></i>
+    <br>
+    View the Published Paper Online
+  </a>
+</div>
+
+<div class='col_4' style='text-align:center'>
+  <a href="resources/cas_published.pdf">
+    <i class="fas fa-file-download" style="font-size:30pt"></i>
+    <br>
+    Download a PDF of the Paper
+  </a>
+</div>
+
+<div class='col_4' style='text-align:center'>
+  <a href="https://github.com/srmatth/CAS">
+    <i class="fab fa-github" style="font-size:30pt"></i>
+    <br>
+    View the Accompanying GitHub Repo
+  </a>
+</div>
+
+## Abstract
+
+This paper explores the tuning and results of two-part models on rich datasets provided through the Casualty Actuarial Society (CAS). These datasets include bodily injury (BI), property damage (PD) and collision (COLL) coverage, each documenting policy characteristics and claims across a four-year period. The datasets are explored, including summaries of all variables, then the methods for modeling are set forth. Models are tuned and the tuning results are displayed, after which we train the final models and seek to explain select predictions. Data were provided by a private insurance carrier to the CAS after anonymizing the dataset. These data are available to actuarial researchers for well-defined research projects that have universal benefit to the insurance industry and the public. Our hope is that the methods demonstrated here can be a good foundation for future ratemaking models to be developed and tested more efficiently.
+
+## Other Resources
+
+This paper is accompanied by a detailed and structured [Github Repository](https://github.com/srmatth/CAS) that contains all the code we used to train the models and get the results published in this paper.
+Instructions for obtaining the data from the CAS can be found in the published paper.
 

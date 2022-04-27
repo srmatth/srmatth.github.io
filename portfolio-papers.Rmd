@@ -18,6 +18,38 @@ A list of papers/writing I have contributed to, ordered by descending date.
 
 <hr style="border-top: 1px solid black">
 
+## Machine Learning in Ratemaking, an Application in Commercial Auto Insurance (April 2022) {#ml_in_ratemaking}
+
+<div class='col_4' style='text-align:center'>
+  <a href="https://doi.org/10.3390/risks10040080">
+    <i class="fas fa-external-link-alt" style="font-size:30pt"></i>
+    <br>
+    View the Published Paper Online
+  </a>
+</div>
+
+<div class='col_4' style='text-align:center'>
+  <a href="resources/cas_published.pdf">
+    <i class="fas fa-file-download" style="font-size:30pt"></i>
+    <br>
+    Download a PDF of the Paper
+  </a>
+</div>
+
+<div class='col_4' style='text-align:center'>
+  <a href="https://github.com/srmatth/CAS">
+    <i class="fab fa-github" style="font-size:30pt"></i>
+    <br>
+    View the Accompanying GitHub Repo
+  </a>
+</div>
+
+## Abstract
+
+This paper explores the tuning and results of two-part models on rich datasets provided through the Casualty Actuarial Society (CAS). These datasets include bodily injury (BI), property damage (PD) and collision (COLL) coverage, each documenting policy characteristics and claims across a four-year period. The datasets are explored, including summaries of all variables, then the methods for modeling are set forth. Models are tuned and the tuning results are displayed, after which we train the final models and seek to explain select predictions. Data were provided by a private insurance carrier to the CAS after anonymizing the dataset. These data are available to actuarial researchers for well-defined research projects that have universal benefit to the insurance industry and the public. Our hope is that the methods demonstrated here can be a good foundation for future ratemaking models to be developed and tested more efficiently.
+
+<hr style="border-top: 1px solid black">
+
 ## Spatial Analysis of Chlorophyll Concentration (March 2022) {#stat_295_spatial}
 
 <div class='col_12' style='text-align:center'>
@@ -102,6 +134,7 @@ We additionally apply the method used in the paper to new data on COVID-19 hospi
 
 <hr style="border-top: 1px solid black">
 
+<!--
 ## NDSEG Proposal 2021 (November 2021) {#ndseg_prop}
 
 <div class='col_12' style='text-align:center'>
@@ -119,4 +152,5 @@ It outlines a method for using statistical methods to improve brain functionalit
 Furthermore, we propose a method for leveraging the information gained from the mapping to inform better real-world predictions by creating a machine learning algorithm structured after the networks the human brain uses to make these computations.
 
 <hr style="border-top: 1px solid black">
+-->
 
