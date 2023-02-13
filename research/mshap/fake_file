@@ -1,0 +1,10 @@
+@article{,
+  title={mshap: Shap values for two-part models},
+  author={Matthews, Spencer and Hartman, Brian},
+  journal={Risks},
+  volume={10},
+  number={1},
+  pages={3},
+  year={2021},
+  publisher={MDPI}
+}
