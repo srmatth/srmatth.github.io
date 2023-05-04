@@ -9,7 +9,64 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
 &lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Example Project</title><link>https://srmatth.github.io/work/</link><pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/work/</guid><description/></item><item><title>Academic Writing</title><link>https://srmatth.github.io/portfolio-content/academic-writing/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/academic-writing/</guid><description/></item><item><title>Coding and Statistical Software</title><link>https://srmatth.github.io/portfolio-content/coding/</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/coding/</guid><description/></item><item><title>Posters and Presentations</title><link>https://srmatth.github.io/portfolio-content/posters-presentations/</link><pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/posters-presentations/</guid><description/></item><item><title>Data Visualizations</title><link>https://srmatth.github.io/portfolio-content/data-visualizations/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/data-visualizations/</guid><description/></item><item><title>Machine Learning in Ratemaking, an Application in Commercial Auto Insurance</title><link>https://srmatth.github.io/research/ratemaking-ml/</link><pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/research/ratemaking-ml/</guid><description>&lt;!--
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Example Project</title><link>https://srmatth.github.io/work/</link><pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/work/</guid><description/></item><item><title>Academic Writing</title><link>https://srmatth.github.io/portfolio-content/academic-writing/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/academic-writing/</guid><description>&lt;div class="row">
+&lt;div class="col-sm-6">
+&lt;a href="mSHAP_published.pdf">
+&lt;h3>mSHAP Paper&lt;/h3>
+&lt;img src="mshap_paper.png" width="100%">
+&lt;/a>
+&lt;/div>
+&lt;div class="col-sm-6">
+&lt;a href="cas_published.pdf">
+&lt;h3>Machine Learning in Ratemaking Paper&lt;/h3>
+&lt;img src="cas_paper.png" width="100%">
+&lt;/a>
+&lt;/div>
+&lt;/div>
+&lt;div class = "col-sm-6">
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/portfolio-content/academic-writing/glm_final_huf405f196de3a95de9740a65cd3c6a61c_222157_f4d92decf8999146761b89d889cc67c6.webp 400w,
+/portfolio-content/academic-writing/glm_final_huf405f196de3a95de9740a65cd3c6a61c_222157_46ada379b076bb02f86905c6ce1a56ca.webp 760w,
+/portfolio-content/academic-writing/glm_final_huf405f196de3a95de9740a65cd3c6a61c_222157_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="https://srmatth.github.io/portfolio-content/academic-writing/glm_final_huf405f196de3a95de9740a65cd3c6a61c_222157_f4d92decf8999146761b89d889cc67c6.webp"
+width="586"
+height="760"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/div>&lt;div class = "col-sm-6">
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/portfolio-content/academic-writing/spatial_final_hu7a9b2a2ab4d1889ac1d5451d3cfee3ef_513410_e1a94e1bd83a59444d2ba5bb940bd2b3.webp 400w,
+/portfolio-content/academic-writing/spatial_final_hu7a9b2a2ab4d1889ac1d5451d3cfee3ef_513410_436b1ff84a5d93e9425c47a1d3d2bfcc.webp 760w,
+/portfolio-content/academic-writing/spatial_final_hu7a9b2a2ab4d1889ac1d5451d3cfee3ef_513410_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="https://srmatth.github.io/portfolio-content/academic-writing/spatial_final_hu7a9b2a2ab4d1889ac1d5451d3cfee3ef_513410_e1a94e1bd83a59444d2ba5bb940bd2b3.webp"
+width="583"
+height="760"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/div>
+&lt;div class = "col-sm-3">&lt;/div>&lt;div class = "col-sm-6">
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/portfolio-content/academic-writing/infectious_disease_final_hud0de52628df74662f385300e3099f642_328261_e9ba4c85d7b4a80fd2af895b98f1f7b6.webp 400w,
+/portfolio-content/academic-writing/infectious_disease_final_hud0de52628df74662f385300e3099f642_328261_07f1145750498a0d8aaa0e5c8ecd678c.webp 760w,
+/portfolio-content/academic-writing/infectious_disease_final_hud0de52628df74662f385300e3099f642_328261_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="https://srmatth.github.io/portfolio-content/academic-writing/infectious_disease_final_hud0de52628df74662f385300e3099f642_328261_e9ba4c85d7b4a80fd2af895b98f1f7b6.webp"
+width="580"
+height="760"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/div></description></item><item><title>Coding and Statistical Software</title><link>https://srmatth.github.io/portfolio-content/coding/</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/coding/</guid><description/></item><item><title>Posters and Presentations</title><link>https://srmatth.github.io/portfolio-content/posters-presentations/</link><pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/posters-presentations/</guid><description/></item><item><title>Data Visualizations</title><link>https://srmatth.github.io/portfolio-content/data-visualizations/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/portfolio-content/data-visualizations/</guid><description/></item><item><title>Machine Learning in Ratemaking, an Application in Commercial Auto Insurance</title><link>https://srmatth.github.io/research/ratemaking-ml/</link><pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/research/ratemaking-ml/</guid><description>&lt;!--
 &lt;div class="alert alert-note">
 &lt;div>
 Create your slides in Markdown - click the &lt;em>Slides&lt;/em> button to check out the example.
