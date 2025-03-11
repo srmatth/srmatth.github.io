@@ -30,19 +30,4 @@ Supplementary notes can be added here, including [code, math, and images](https:
 &lt;p>mSHAP values can be used to gain insights on variable importance when using two-part models that are commonly used in insurance modeling.&lt;/p>
 &lt;h3 id="abstract">Abstract&lt;/h3>
 &lt;font size=3>
-Two-part models are important to and used throughout insurance and actuarial science. Since insurance is required for registering a car, obtaining a mortgage, and participating in certain businesses, it is especially important that the models that price insurance policies are fair and non-discriminatory. Black box models can make it very difficult to know which covariates are influencing the results, resulting in model risk and bias. SHAP (SHapley Additive exPlanations) values enable interpretation of various black box models, but little progress has been made in two-part models. In this paper, we propose mSHAP (or multiplicative SHAP), a method for computing SHAP values of two-part models using the SHAP values of the individual models. This method will allow for the predictions of two-part models to be explained at an individual observation level. After developing mSHAP, we perform an in-depth simulation study. Although the kernelSHAP algorithm is also capable of computing approximate SHAP values for a two-part model, a comparison with our method demonstrates that mSHAP is exponentially faster. Ultimately, we apply mSHAP to a two-part ratemaking model for personal auto property damage insurance coverage. Additionally, an R package (mshap) is available to easily implement the method in a wide variety of applications. &lt;/font></description></item><item><title>mSHAP, Explaining Two-Part Models</title><link>https://srmatth.github.io/papers/mshap-pres/</link><pubDate>Thu, 08 Jul 2021 00:00:00 +0000</pubDate><guid>https://srmatth.github.io/papers/mshap-pres/</guid><description>&lt;!--
-&lt;div class="alert alert-note">
-&lt;div>
-Click the &lt;em>Cite&lt;/em> button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-&lt;/div>
-&lt;/div>
-&lt;div class="alert alert-note">
-&lt;div>
-Create your slides in Markdown - click the &lt;em>Slides&lt;/em> button to check out the example.
-&lt;/div>
-&lt;/div>
-Supplementary notes can be added here, including [code, math, and images](https://wowchemy.com/docs/writing-markdown-latex/).
--->
-&lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>Presented my work on MSHAP values at the 24th International &lt;em>Insurance: Mathematics and Economics&lt;/em> Conference in July of 2021.
-This conference was held in a virtual format.&lt;/p></description></item></channel></rss>
+Two-part models are important to and used throughout insurance and actuarial science. Since insurance is required for registering a car, obtaining a mortgage, and participating in certain businesses, it is especially important that the models that price insurance policies are fair and non-discriminatory. Black box models can make it very difficult to know which covariates are influencing the results, resulting in model risk and bias. SHAP (SHapley Additive exPlanations) values enable interpretation of various black box models, but little progress has been made in two-part models. In this paper, we propose mSHAP (or multiplicative SHAP), a method for computing SHAP values of two-part models using the SHAP values of the individual models. This method will allow for the predictions of two-part models to be explained at an individual observation level. After developing mSHAP, we perform an in-depth simulation study. Although the kernelSHAP algorithm is also capable of computing approximate SHAP values for a two-part model, a comparison with our method demonstrates that mSHAP is exponentially faster. Ultimately, we apply mSHAP to a two-part ratemaking model for personal auto property damage insurance coverage. Additionally, an R package (mshap) is available to easily implement the method in a wide variety of applications. &lt;/font></description></item></channel></rss>
